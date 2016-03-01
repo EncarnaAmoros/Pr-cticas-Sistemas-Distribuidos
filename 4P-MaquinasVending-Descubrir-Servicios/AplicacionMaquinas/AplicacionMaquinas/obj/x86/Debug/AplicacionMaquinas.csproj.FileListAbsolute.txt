@@ -1,0 +1,9 @@
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\AplicacionMaquinas\AplicacionMaquinas\bin\Debug\AplicacionMaquinas.exe.config
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\AplicacionMaquinas\AplicacionMaquinas\bin\Debug\AplicacionMaquinas.exe
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\AplicacionMaquinas\AplicacionMaquinas\bin\Debug\AplicacionMaquinas.pdb
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\AplicacionMaquinas\AplicacionMaquinas\obj\x86\Debug\AplicacionMaquinas.Form1.resources
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\AplicacionMaquinas\AplicacionMaquinas\obj\x86\Debug\AplicacionMaquinas.Properties.Resources.resources
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\AplicacionMaquinas\AplicacionMaquinas\obj\x86\Debug\AplicacionMaquinas.csproj.GenerateResource.Cache
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\AplicacionMaquinas\AplicacionMaquinas\obj\x86\Debug\AplicacionMaquinas.exe
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\AplicacionMaquinas\AplicacionMaquinas\obj\x86\Debug\AplicacionMaquinas.pdb
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\AplicacionMaquinas\AplicacionMaquinas\obj\x86\Debug\AplicacionMaquinas.csprojResolveAssemblyReference.cache

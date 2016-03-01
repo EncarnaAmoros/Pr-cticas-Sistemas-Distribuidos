@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns="http://master" xmlns:ns1="http://org.apache.axis2/xsd" targetNamespace="http://master" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+		Please Type your service description here
+	</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://master">
+      <xs:element name="celsiusToFarenheit">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="celsius" type="xs:float" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="celsiusToFarenheitResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:float" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="farenheitToCelsius">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="farenheit" type="xs:float" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="farenheitToCelsiusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:float" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="celsiusToFarenheitRequest">
+    <wsdl:part name="parameters" element="ns:celsiusToFarenheit" />
+  </wsdl:message>
+  <wsdl:message name="celsiusToFarenheitResponse">
+    <wsdl:part name="parameters" element="ns:celsiusToFarenheitResponse" />
+  </wsdl:message>
+  <wsdl:message name="farenheitToCelsiusRequest">
+    <wsdl:part name="parameters" element="ns:farenheitToCelsius" />
+  </wsdl:message>
+  <wsdl:message name="farenheitToCelsiusResponse">
+    <wsdl:part name="parameters" element="ns:farenheitToCelsiusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ConverterPortType">
+    <wsdl:operation name="celsiusToFarenheit">
+      <wsdl:input wsaw:Action="urn:celsiusToFarenheit" message="ns:celsiusToFarenheitRequest" />
+      <wsdl:output wsaw:Action="urn:celsiusToFarenheitResponse" message="ns:celsiusToFarenheitResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="farenheitToCelsius">
+      <wsdl:input wsaw:Action="urn:farenheitToCelsius" message="ns:farenheitToCelsiusRequest" />
+      <wsdl:output wsaw:Action="urn:farenheitToCelsiusResponse" message="ns:farenheitToCelsiusResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConverterSoap11Binding" type="ns:ConverterPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="celsiusToFarenheit">
+      <soap:operation soapAction="urn:celsiusToFarenheit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="farenheitToCelsius">
+      <soap:operation soapAction="urn:farenheitToCelsius" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConverterSoap12Binding" type="ns:ConverterPortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="celsiusToFarenheit">
+      <soap12:operation soapAction="urn:celsiusToFarenheit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="farenheitToCelsius">
+      <soap12:operation soapAction="urn:farenheitToCelsius" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConverterHttpBinding" type="ns:ConverterPortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="celsiusToFarenheit">
+      <http:operation location="Converter/celsiusToFarenheit" />
+      <wsdl:input>
+        <mime:content part="celsiusToFarenheit" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="celsiusToFarenheit" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="farenheitToCelsius">
+      <http:operation location="Converter/farenheitToCelsius" />
+      <wsdl:input>
+        <mime:content part="farenheitToCelsius" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="farenheitToCelsius" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Converter">
+    <wsdl:port name="ConverterHttpSoap11Endpoint" binding="ns:ConverterSoap11Binding">
+      <soap:address location="http://localhost:8080/ProyectoMaster/services/Converter.ConverterHttpSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="ConverterHttpSoap12Endpoint" binding="ns:ConverterSoap12Binding">
+      <soap12:address location="http://localhost:8080/ProyectoMaster/services/Converter.ConverterHttpSoap12Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="ConverterHttpEndpoint" binding="ns:ConverterHttpBinding">
+      <http:address location="http://localhost:8080/ProyectoMaster/services/Converter.ConverterHttpEndpoint/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

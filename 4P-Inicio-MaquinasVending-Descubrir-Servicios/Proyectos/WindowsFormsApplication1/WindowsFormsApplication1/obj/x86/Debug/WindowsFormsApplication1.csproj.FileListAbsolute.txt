@@ -1,0 +1,16 @@
+C:\Users\Encarna\Desktop\WindowsFormsApplication1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Encarna\Desktop\WindowsFormsApplication1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Encarna\Desktop\WindowsFormsApplication1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\Encarna\Desktop\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Encarna\Desktop\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Encarna\Desktop\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Encarna\Desktop\WindowsFormsApplication1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\Encarna\Desktop\WindowsFormsApplication1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica\Proyectos\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica\Proyectos\WindowsFormsApplication1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.exe
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica\Proyectos\WindowsFormsApplication1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.pdb
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica\Proyectos\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica\Proyectos\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica\Proyectos\WindowsFormsApplication1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica\Proyectos\WindowsFormsApplication1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica\Proyectos\WindowsFormsApplication1\WindowsFormsApplication1\obj\x86\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache

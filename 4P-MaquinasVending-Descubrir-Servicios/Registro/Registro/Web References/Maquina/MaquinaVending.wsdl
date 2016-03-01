@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns="http://Maquina" xmlns:ns1="http://org.apache.axis2/xsd" targetNamespace="http://Maquina" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+		Please Type your service description here
+	</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://Maquina">
+      <xs:element name="setEstado">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="valor" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="displayResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setNombre">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="valor" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setMonedero">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="valor" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setStock">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="valor" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="leerLinea">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="numero" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="leerLineaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getFechaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getEstadoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getStockResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="leerFicheroResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:anyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getNombreResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getMonederoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setTemperatura">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="valor" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getTemperaturaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="escribeFichero">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="datos" nillable="true" type="xs:anyType" />
+            <xs:element minOccurs="0" name="opcion" type="xs:int" />
+            <xs:element minOccurs="0" name="numero" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getFechaRequest" />
+  <wsdl:message name="getFechaResponse">
+    <wsdl:part name="parameters" element="ns:getFechaResponse" />
+  </wsdl:message>
+  <wsdl:message name="setStockRequest">
+    <wsdl:part name="parameters" element="ns:setStock" />
+  </wsdl:message>
+  <wsdl:message name="displayRequest" />
+  <wsdl:message name="displayResponse">
+    <wsdl:part name="parameters" element="ns:displayResponse" />
+  </wsdl:message>
+  <wsdl:message name="setNombreRequest">
+    <wsdl:part name="parameters" element="ns:setNombre" />
+  </wsdl:message>
+  <wsdl:message name="getEstadoRequest" />
+  <wsdl:message name="getEstadoResponse">
+    <wsdl:part name="parameters" element="ns:getEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="leerLineaRequest">
+    <wsdl:part name="parameters" element="ns:leerLinea" />
+  </wsdl:message>
+  <wsdl:message name="leerLineaResponse">
+    <wsdl:part name="parameters" element="ns:leerLineaResponse" />
+  </wsdl:message>
+  <wsdl:message name="leerFicheroRequest" />
+  <wsdl:message name="leerFicheroResponse">
+    <wsdl:part name="parameters" element="ns:leerFicheroResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMonederoRequest" />
+  <wsdl:message name="getMonederoResponse">
+    <wsdl:part name="parameters" element="ns:getMonederoResponse" />
+  </wsdl:message>
+  <wsdl:message name="InicializarRequest" />
+  <wsdl:message name="getNombreRequest" />
+  <wsdl:message name="getNombreResponse">
+    <wsdl:part name="parameters" element="ns:getNombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="escribeFicheroRequest">
+    <wsdl:part name="parameters" element="ns:escribeFichero" />
+  </wsdl:message>
+  <wsdl:message name="setFechaRequest" />
+  <wsdl:message name="getStockRequest" />
+  <wsdl:message name="getStockResponse">
+    <wsdl:part name="parameters" element="ns:getStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTemperaturaRequest" />
+  <wsdl:message name="getTemperaturaResponse">
+    <wsdl:part name="parameters" element="ns:getTemperaturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="setMonederoRequest">
+    <wsdl:part name="parameters" element="ns:setMonedero" />
+  </wsdl:message>
+  <wsdl:message name="setEstadoRequest">
+    <wsdl:part name="parameters" element="ns:setEstado" />
+  </wsdl:message>
+  <wsdl:message name="setTemperaturaRequest">
+    <wsdl:part name="parameters" element="ns:setTemperatura" />
+  </wsdl:message>
+  <wsdl:portType name="MaquinaVendingPortType">
+    <wsdl:operation name="getFecha">
+      <wsdl:input wsaw:Action="urn:getFecha" message="ns:getFechaRequest" />
+      <wsdl:output wsaw:Action="urn:getFechaResponse" message="ns:getFechaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="setStock">
+      <wsdl:input wsaw:Action="urn:setStock" message="ns:setStockRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="display">
+      <wsdl:input wsaw:Action="urn:display" message="ns:displayRequest" />
+      <wsdl:output wsaw:Action="urn:displayResponse" message="ns:displayResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="setNombre">
+      <wsdl:input wsaw:Action="urn:setNombre" message="ns:setNombreRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="getEstado">
+      <wsdl:input wsaw:Action="urn:getEstado" message="ns:getEstadoRequest" />
+      <wsdl:output wsaw:Action="urn:getEstadoResponse" message="ns:getEstadoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="leerLinea">
+      <wsdl:input wsaw:Action="urn:leerLinea" message="ns:leerLineaRequest" />
+      <wsdl:output wsaw:Action="urn:leerLineaResponse" message="ns:leerLineaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="leerFichero">
+      <wsdl:input wsaw:Action="urn:leerFichero" message="ns:leerFicheroRequest" />
+      <wsdl:output wsaw:Action="urn:leerFicheroResponse" message="ns:leerFicheroResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMonedero">
+      <wsdl:input wsaw:Action="urn:getMonedero" message="ns:getMonederoRequest" />
+      <wsdl:output wsaw:Action="urn:getMonederoResponse" message="ns:getMonederoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Inicializar">
+      <wsdl:input wsaw:Action="urn:Inicializar" message="ns:InicializarRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="getNombre">
+      <wsdl:input wsaw:Action="urn:getNombre" message="ns:getNombreRequest" />
+      <wsdl:output wsaw:Action="urn:getNombreResponse" message="ns:getNombreResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="escribeFichero">
+      <wsdl:input wsaw:Action="urn:escribeFichero" message="ns:escribeFicheroRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="setFecha">
+      <wsdl:input wsaw:Action="urn:setFecha" message="ns:setFechaRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="getStock">
+      <wsdl:input wsaw:Action="urn:getStock" message="ns:getStockRequest" />
+      <wsdl:output wsaw:Action="urn:getStockResponse" message="ns:getStockResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getTemperatura">
+      <wsdl:input wsaw:Action="urn:getTemperatura" message="ns:getTemperaturaRequest" />
+      <wsdl:output wsaw:Action="urn:getTemperaturaResponse" message="ns:getTemperaturaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="setMonedero">
+      <wsdl:input wsaw:Action="urn:setMonedero" message="ns:setMonederoRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="setEstado">
+      <wsdl:input wsaw:Action="urn:setEstado" message="ns:setEstadoRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="setTemperatura">
+      <wsdl:input wsaw:Action="urn:setTemperatura" message="ns:setTemperaturaRequest" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MaquinaVendingSoap11Binding" type="ns:MaquinaVendingPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="setStock">
+      <soap:operation soapAction="urn:setStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getFecha">
+      <soap:operation soapAction="urn:getFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="display">
+      <soap:operation soapAction="urn:display" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setNombre">
+      <soap:operation soapAction="urn:setNombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getEstado">
+      <soap:operation soapAction="urn:getEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="leerLinea">
+      <soap:operation soapAction="urn:leerLinea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="leerFichero">
+      <soap:operation soapAction="urn:leerFichero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMonedero">
+      <soap:operation soapAction="urn:getMonedero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Inicializar">
+      <soap:operation soapAction="urn:Inicializar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getNombre">
+      <soap:operation soapAction="urn:getNombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="escribeFichero">
+      <soap:operation soapAction="urn:escribeFichero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setFecha">
+      <soap:operation soapAction="urn:setFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getStock">
+      <soap:operation soapAction="urn:getStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTemperatura">
+      <soap:operation soapAction="urn:getTemperatura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setEstado">
+      <soap:operation soapAction="urn:setEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setMonedero">
+      <soap:operation soapAction="urn:setMonedero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setTemperatura">
+      <soap:operation soapAction="urn:setTemperatura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MaquinaVendingSoap12Binding" type="ns:MaquinaVendingPortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="setStock">
+      <soap12:operation soapAction="urn:setStock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getFecha">
+      <soap12:operation soapAction="urn:getFecha" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="display">
+      <soap12:operation soapAction="urn:display" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setNombre">
+      <soap12:operation soapAction="urn:setNombre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getEstado">
+      <soap12:operation soapAction="urn:getEstado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="leerLinea">
+      <soap12:operation soapAction="urn:leerLinea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="leerFichero">
+      <soap12:operation soapAction="urn:leerFichero" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMonedero">
+      <soap12:operation soapAction="urn:getMonedero" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Inicializar">
+      <soap12:operation soapAction="urn:Inicializar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getNombre">
+      <soap12:operation soapAction="urn:getNombre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="escribeFichero">
+      <soap12:operation soapAction="urn:escribeFichero" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setFecha">
+      <soap12:operation soapAction="urn:setFecha" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getStock">
+      <soap12:operation soapAction="urn:getStock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTemperatura">
+      <soap12:operation soapAction="urn:getTemperatura" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setEstado">
+      <soap12:operation soapAction="urn:setEstado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setMonedero">
+      <soap12:operation soapAction="urn:setMonedero" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setTemperatura">
+      <soap12:operation soapAction="urn:setTemperatura" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MaquinaVendingHttpBinding" type="ns:MaquinaVendingPortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="setStock">
+      <http:operation location="MaquinaVending/setStock" />
+      <wsdl:input>
+        <mime:content part="setStock" type="text/xml" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getFecha">
+      <http:operation location="MaquinaVending/getFecha" />
+      <wsdl:input>
+        <mime:content part="getFecha" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getFecha" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="display">
+      <http:operation location="MaquinaVending/display" />
+      <wsdl:input>
+        <mime:content part="display" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="display" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setNombre">
+      <http:operation location="MaquinaVending/setNombre" />
+      <wsdl:input>
+        <mime:content part="setNombre" type="text/xml" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getEstado">
+      <http:operation location="MaquinaVending/getEstado" />
+      <wsdl:input>
+        <mime:content part="getEstado" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getEstado" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="leerLinea">
+      <http:operation location="MaquinaVending/leerLinea" />
+      <wsdl:input>
+        <mime:content part="leerLinea" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="leerLinea" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="leerFichero">
+      <http:operation location="MaquinaVending/leerFichero" />
+      <wsdl:input>
+        <mime:content part="leerFichero" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="leerFichero" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMonedero">
+      <http:operation location="MaquinaVending/getMonedero" />
+      <wsdl:input>
+        <mime:content part="getMonedero" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getMonedero" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Inicializar">
+      <http:operation location="MaquinaVending/Inicializar" />
+      <wsdl:input>
+        <mime:content part="Inicializar" type="text/xml" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getNombre">
+      <http:operation location="MaquinaVending/getNombre" />
+      <wsdl:input>
+        <mime:content part="getNombre" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getNombre" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="escribeFichero">
+      <http:operation location="MaquinaVending/escribeFichero" />
+      <wsdl:input>
+        <mime:content part="escribeFichero" type="text/xml" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setFecha">
+      <http:operation location="MaquinaVending/setFecha" />
+      <wsdl:input>
+        <mime:content part="setFecha" type="text/xml" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getStock">
+      <http:operation location="MaquinaVending/getStock" />
+      <wsdl:input>
+        <mime:content part="getStock" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getStock" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTemperatura">
+      <http:operation location="MaquinaVending/getTemperatura" />
+      <wsdl:input>
+        <mime:content part="getTemperatura" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="getTemperatura" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setEstado">
+      <http:operation location="MaquinaVending/setEstado" />
+      <wsdl:input>
+        <mime:content part="setEstado" type="text/xml" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setMonedero">
+      <http:operation location="MaquinaVending/setMonedero" />
+      <wsdl:input>
+        <mime:content part="setMonedero" type="text/xml" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="setTemperatura">
+      <http:operation location="MaquinaVending/setTemperatura" />
+      <wsdl:input>
+        <mime:content part="setTemperatura" type="text/xml" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MaquinaVending">
+    <wsdl:port name="MaquinaVendingHttpSoap11Endpoint" binding="ns:MaquinaVendingSoap11Binding">
+      <soap:address location="http://localhost:8080/MaquinaVending/services/MaquinaVending.MaquinaVendingHttpSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="MaquinaVendingHttpSoap12Endpoint" binding="ns:MaquinaVendingSoap12Binding">
+      <soap12:address location="http://localhost:8080/MaquinaVending/services/MaquinaVending.MaquinaVendingHttpSoap12Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="MaquinaVendingHttpEndpoint" binding="ns:MaquinaVendingHttpBinding">
+      <http:address location="http://localhost:8080/MaquinaVending/services/MaquinaVending.MaquinaVendingHttpEndpoint/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

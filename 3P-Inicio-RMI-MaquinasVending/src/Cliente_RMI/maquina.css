@@ -1,0 +1,134 @@
+body
+{
+    display: block;
+    margin: 8px;
+    background-color: #F7F3EC;
+}
+
+.div_cabecera
+{
+    background-color: #333333;
+    margin-left: -8px;
+    margin-top: -30px;
+    margin-right: -8px;
+    height: 170px;
+}
+
+.div_cabecera h1
+{
+    color: white;
+    font-size: 55px;
+    font-family:  inherit;
+    font-variant: small-caps;
+    letter-spacing: -1px;
+    position:absolute;
+    margin-top: 60px;
+    margin-left: 40px;
+}
+
+.div_maquinas
+{
+    margin-left: 20px;
+}
+
+.div_maquina
+{
+    float:left;
+    margin-left:15px;
+    margin-right:15px;
+    margin-top:29px;
+    padding-left: 20px;
+    background-color: #A0D2E2;
+    height: 460px;
+    width: 450px;
+}
+
+#boton_enviar
+{
+    height: 45px;
+    width: 165px;
+    margin-top: 5px;
+    margin-left: 128px;
+    border-style: none;
+    font-weight: bold;
+    background-color: #333333;
+    font-size: 23px;
+    color: white;
+
+}
+
+.sensor
+{
+    color: black;
+    margin-top: -1px;
+    margin-right: 222px;
+    float: right;
+    background: #F7F3EC;
+    width: 30px;
+    font-size: 18px;
+    border-radius: 3px;
+}
+
+.sensor2
+{
+    color: black;
+    margin-top: -1px;
+    margin-right: 2px;
+    float: right;
+    background: #F7F3EC;
+    width: 30px;
+    font-size: 18px;
+    border-radius: 3px;
+}
+
+.sensoresStock
+{
+    margin-right: 126px;
+}
+
+.div_maquina h2
+{
+    font-family: inherit;
+    color: #333333;
+    margin-left: 1px;
+    margin-top: 14px;
+    font-size: 40px;
+}
+
+.div_maquina h5
+{
+    padding-top: 0px;
+    font-size: 20px;
+}
+
+
+.div_maquina h2 a
+{
+    color: #333333;/*gray;
+	/*color: black;*/
+    text-decoration: none;
+}
+
+.volver
+{
+    height: 99px;
+    width: 295px;
+    background-color: #333333;
+    margin-top: 155;
+    margin-right: 288px;
+    float: right;
+}
+
+.volver a
+{
+    color: white;
+    text-decoration: none;
+}
+
+.volver h2
+{
+    font-family: -webkit-body;
+    font-size: 47px;
+    text-align: center;
+    margin-top: 23px;
+}

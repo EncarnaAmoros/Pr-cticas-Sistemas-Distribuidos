@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AplicacionMaquinas.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AplicacionMaquinas_Maquina_MaquinaVending" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.56.101:8080/MaquinaVending/services/MaquinaVending.MaquinaVendingHttpSoap11Endpoint/</Value>
+    </Setting>
+    <Setting Name="AplicacionMaquinas_Seguridad_UDDISecurityService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.56.101:8080/juddiv3/services/security</Value>
+    </Setting>
+    <Setting Name="AplicacionMaquinas_Publicar_UDDIPublicationService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.56.101:8080/juddiv3/services/publish</Value>
+    </Setting>
+    <Setting Name="AplicacionMaquinas_Buscar_UDDIInquiryService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://192.168.56.101:8080/juddiv3/services/inquiry</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

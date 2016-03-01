@@ -1,0 +1,3265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="publish_remoto" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="UDDIPublicationServiceSoapBinding" type="wsdl" bindingName="{urn:uddi-org:v3_service}UDDIPublicationServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://192.168.56.101:8080/juddiv3/services/publish?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://192.168.56.101:8080/juddiv3/services/publish?wsdl"><con:part><con:url>http://192.168.56.101:8080/juddiv3/services/publish?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="UDDIPublicationService" targetNamespace="urn:uddi-org:v3_service" xmlns:ns1="urn:uddi-org:api_v3" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:uddi-org:v3_service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:uddi-org:vscache_v3" version="1.0" xmlns:tns="urn:uddi-org:vscache_v3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="urn:uddi-org:api_v3"/>
+      <xs:element name="chunkToken" type="xs:string"/>
+      <xs:element name="get_allValidValues" type="tns:get_allValidValues"/>
+      <xs:element name="keyValue" type="xs:string"/>
+      <xs:element name="validValue" type="tns:validValue"/>
+      <xs:element name="validValuesList" type="tns:validValuesList"/>
+      <xs:complexType name="validValuesList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="chunkToken" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="validValue" nillable="true" type="tns:validValue"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validValue">
+        <xs:sequence>
+          <xs:element name="keyValue" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="get_allValidValues">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:authInfo"/>
+          <xs:element ref="ns1:tModelKey"/>
+          <xs:element minOccurs="0" name="chunkToken" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:uddi-org:vs_v3" version="1.0" xmlns:tns="urn:uddi-org:vs_v3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="urn:uddi-org:api_v3"/>
+      <xs:element name="validate_values" type="tns:validate_values"/>
+      <xs:complexType name="validate_values">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:authInfo"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:businessEntity"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:businessService"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:bindingTemplate"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:tModel"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:publisherAssertion"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:uddi-org:subr_v3" version="1.0" xmlns:ns2="urn:uddi-org:sub_v3" xmlns:tns="urn:uddi-org:subr_v3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="urn:uddi-org:api_v3"/>
+      <xs:import namespace="urn:uddi-org:sub_v3"/>
+      <xs:element name="notify_subscriptionListener" type="tns:notify_subscriptionListener"/>
+      <xs:complexType name="notify_subscriptionListener">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:authInfo"/>
+          <xs:element ref="ns2:subscriptionResultsList"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:uddi-org:sub_v3" version="1.0" xmlns:tns="urn:uddi-org:sub_v3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="urn:uddi-org:api_v3"/>
+      <xs:element name="chunkToken" type="xs:string"/>
+      <xs:element name="coveragePeriod" type="tns:coveragePeriod"/>
+      <xs:element name="delete_subscription" type="tns:delete_subscription"/>
+      <xs:element name="deleted" type="xs:boolean"/>
+      <xs:element name="endPoint" type="xs:anySimpleType"/>
+      <xs:element name="expiresAfter" type="xs:anySimpleType"/>
+      <xs:element name="get_subscriptionResults" type="tns:get_subscriptionResults"/>
+      <xs:element name="get_subscriptions" type="tns:get_subscriptions"/>
+      <xs:element name="keyBag" type="tns:keyBag"/>
+      <xs:element name="maxEntities" type="xs:int"/>
+      <xs:element name="notificationInterval" type="xs:duration"/>
+      <xs:element name="save_subscription" type="tns:save_subscription"/>
+      <xs:element name="startPoint" type="xs:anySimpleType"/>
+      <xs:element name="subscription" type="tns:subscription"/>
+      <xs:element name="subscriptionFilter" type="tns:subscriptionFilter"/>
+      <xs:element name="subscriptionKey" type="xs:string"/>
+      <xs:element name="subscriptionResultsList" type="tns:subscriptionResultsList"/>
+      <xs:element name="subscriptions" type="tns:subscriptions"/>
+      <xs:complexType name="get_subscriptionResults">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:authInfo"/>
+          <xs:element name="subscriptionKey" type="xs:string"/>
+          <xs:element name="coveragePeriod" type="tns:coveragePeriod"/>
+          <xs:element minOccurs="0" name="chunkToken" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="coveragePeriod">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="startPoint" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="endPoint" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="save_subscription">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:authInfo"/>
+          <xs:element maxOccurs="unbounded" name="subscription" type="tns:subscription"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="subscription">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="subscriptionKey" type="xs:string"/>
+          <xs:element minOccurs="0" name="subscriptionFilter" type="tns:subscriptionFilter"/>
+          <xs:element minOccurs="0" ref="ns1:bindingKey"/>
+          <xs:element minOccurs="0" name="notificationInterval" type="xs:duration"/>
+          <xs:element minOccurs="0" name="maxEntities" type="xs:int"/>
+          <xs:element minOccurs="0" name="expiresAfter" type="xs:anySimpleType"/>
+        </xs:sequence>
+        <xs:attribute name="brief" type="xs:boolean"/>
+      </xs:complexType>
+      <xs:complexType name="subscriptionFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:find_binding"/>
+          <xs:element minOccurs="0" ref="ns1:find_business"/>
+          <xs:element minOccurs="0" ref="ns1:find_relatedBusinesses"/>
+          <xs:element minOccurs="0" ref="ns1:find_service"/>
+          <xs:element minOccurs="0" ref="ns1:find_tModel"/>
+          <xs:element minOccurs="0" ref="ns1:get_bindingDetail"/>
+          <xs:element minOccurs="0" ref="ns1:get_businessDetail"/>
+          <xs:element minOccurs="0" ref="ns1:get_serviceDetail"/>
+          <xs:element minOccurs="0" ref="ns1:get_tModelDetail"/>
+          <xs:element minOccurs="0" ref="ns1:get_assertionStatusReport"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="subscriptions">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="subscription" nillable="true" type="tns:subscription"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="subscriptionResultsList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="chunkToken" type="xs:string"/>
+          <xs:element name="coveragePeriod" type="tns:coveragePeriod"/>
+          <xs:element name="subscription" type="tns:subscription"/>
+          <xs:element minOccurs="0" ref="ns1:bindingDetail"/>
+          <xs:element minOccurs="0" ref="ns1:businessDetail"/>
+          <xs:element minOccurs="0" ref="ns1:serviceDetail"/>
+          <xs:element minOccurs="0" ref="ns1:tModelDetail"/>
+          <xs:element minOccurs="0" ref="ns1:businessList"/>
+          <xs:element minOccurs="0" ref="ns1:relatedBusinessesList"/>
+          <xs:element minOccurs="0" ref="ns1:serviceList"/>
+          <xs:element minOccurs="0" ref="ns1:tModelList"/>
+          <xs:element minOccurs="0" ref="ns1:assertionStatusReport"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="keyBag" nillable="true" type="tns:keyBag"/>
+        </xs:sequence>
+        <xs:attribute name="someResultsUnavailable" type="xs:boolean"/>
+      </xs:complexType>
+      <xs:complexType name="keyBag">
+        <xs:sequence>
+          <xs:element name="deleted" type="xs:boolean"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:tModelKey"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:businessKey"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:serviceKey"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:bindingKey"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="get_subscriptions">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:authInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="delete_subscription">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:authInfo"/>
+          <xs:element maxOccurs="unbounded" name="subscriptionKey" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:uddi-org:repl_v3" version="1.0" xmlns:ns2="http://www.w3.org/2000/09/xmldsig#" xmlns:ns3="urn:uddi-org:custody_v3" xmlns:tns="urn:uddi-org:repl_v3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="urn:uddi-org:api_v3"/>
+      <xs:import namespace="http://www.w3.org/2000/09/xmldsig#"/>
+      <xs:import namespace="urn:uddi-org:custody_v3"/>
+      <xs:element name="changeRecord">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="changeID" type="tns:changeRecordID_type"/>
+            <xs:element minOccurs="0" name="changeRecordNull" type="xs:anyType"/>
+            <xs:element minOccurs="0" ref="tns:changeRecordNewData"/>
+            <xs:element minOccurs="0" ref="tns:changeRecordDelete"/>
+            <xs:element minOccurs="0" ref="tns:changeRecordPublisherAssertion"/>
+            <xs:element minOccurs="0" ref="tns:changeRecordHide"/>
+            <xs:element minOccurs="0" ref="tns:changeRecordDeleteAssertion"/>
+            <xs:element minOccurs="0" ref="tns:changeRecordAcknowledgement"/>
+            <xs:element minOccurs="0" ref="tns:changeRecordCorrection"/>
+            <xs:element minOccurs="0" ref="tns:changeRecordNewDataConditional"/>
+            <xs:element minOccurs="0" ref="tns:changeRecordConditionFailed"/>
+          </xs:sequence>
+          <xs:attribute name="acknowledgementRequested" type="xs:boolean" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="changeRecordAcknowledgement">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="acknowledgedChange" type="tns:changeRecordID_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="changeRecordConditionFailed">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="failedChangeID" type="tns:changeRecordID_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="changeRecordCorrection">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:changeRecord"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="changeRecordDelete">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="businessKey" type="xs:string"/>
+            <xs:element minOccurs="0" name="tModelKey" type="xs:string"/>
+            <xs:element minOccurs="0" name="serviceKey" type="xs:string"/>
+            <xs:element minOccurs="0" name="bindingKey" type="xs:string"/>
+            <xs:element name="modified" type="xs:anySimpleType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="changeRecordDeleteAssertion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="ns1:publisherAssertion"/>
+            <xs:element name="fromBusinessCheck" type="xs:boolean"/>
+            <xs:element name="toBusinessCheck" type="xs:boolean"/>
+            <xs:element name="modified" type="xs:anySimpleType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="changeRecordHide">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="tModelKey" type="xs:string"/>
+            <xs:element name="modified" type="xs:anySimpleType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="changeRecordNewData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" ref="ns1:businessEntity"/>
+            <xs:element minOccurs="0" ref="ns1:businessService"/>
+            <xs:element minOccurs="0" ref="ns1:bindingTemplate"/>
+            <xs:element minOccurs="0" ref="ns1:tModel"/>
+            <xs:element name="operationalInfo" type="ns1:operationalInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="changeRecordNewDataConditional">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="tns:changeRecordNewData"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="changeRecordNull" type="xs:anyType"/>
+      <xs:element name="changeRecordPublisherAssertion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="ns1:publisherAssertion"/>
+            <xs:element name="fromBusinessCheck" type="xs:boolean"/>
+            <xs:element name="toBusinessCheck" type="xs:boolean"/>
+            <xs:element name="modified" type="xs:anySimpleType"/>
+            <xs:element minOccurs="0" ref="tns:fromSignatures"/>
+            <xs:element minOccurs="0" ref="tns:toSignatures"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="changeRecords">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="changeRecord" nillable="true">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="changeID" type="tns:changeRecordID_type"/>
+                  <xs:element minOccurs="0" name="changeRecordNull" type="xs:anyType"/>
+                  <xs:element minOccurs="0" ref="tns:changeRecordNewData"/>
+                  <xs:element minOccurs="0" ref="tns:changeRecordDelete"/>
+                  <xs:element minOccurs="0" ref="tns:changeRecordPublisherAssertion"/>
+                  <xs:element minOccurs="0" ref="tns:changeRecordHide"/>
+                  <xs:element minOccurs="0" ref="tns:changeRecordDeleteAssertion"/>
+                  <xs:element minOccurs="0" ref="tns:changeRecordAcknowledgement"/>
+                  <xs:element minOccurs="0" ref="tns:changeRecordCorrection"/>
+                  <xs:element minOccurs="0" ref="tns:changeRecordNewDataConditional"/>
+                  <xs:element minOccurs="0" ref="tns:changeRecordConditionFailed"/>
+                </xs:sequence>
+                <xs:attribute name="acknowledgementRequested" type="xs:boolean" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="communicationGraph">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="node" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" name="controlledMessage" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="edge" nillable="true">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="message" type="xs:string"/>
+                  <xs:element name="messageSender" type="xs:string"/>
+                  <xs:element name="messageReceiver" type="xs:string"/>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="messageReceiverAlternate" nillable="true" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="do_ping">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fromSignatures">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Signature" type="ns2:SignatureType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="get_changeRecords">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="requestingNode" type="xs:string"/>
+            <xs:element minOccurs="0" name="changesAlreadySeen" type="tns:highWaterMarkVector_type"/>
+            <xs:element minOccurs="0" name="responseLimitCount" type="xs:integer"/>
+            <xs:element minOccurs="0" name="responseLimitVector" type="tns:highWaterMarkVector_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="get_highWaterMarks">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="highWaterMarks" type="tns:highWaterMarkVector_type"/>
+      <xs:element name="notify_changeRecordsAvailable">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="notifyingNode" type="xs:string"/>
+            <xs:element name="changesAvailable" type="tns:highWaterMarkVector_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="operator">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="operatorNodeID" type="xs:string"/>
+            <xs:element name="operatorStatus" type="tns:operatorStatus_type"/>
+            <xs:element maxOccurs="unbounded" name="contact" type="ns1:contact"/>
+            <xs:element name="soapReplicationURL" type="xs:anyURI"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="KeyInfo" type="ns2:KeyInfoType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="operatorNodeID" type="xs:string"/>
+      <xs:element name="replicationConfiguration">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="serialNumber" type="xs:long"/>
+            <xs:element name="timeOfConfigurationUpdate" type="xs:string"/>
+            <xs:element name="registryContact">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="contact" type="ns1:contact"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="operator" nillable="true">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="operatorNodeID" type="xs:string"/>
+                  <xs:element name="operatorStatus" type="tns:operatorStatus_type"/>
+                  <xs:element maxOccurs="unbounded" name="contact" type="ns1:contact"/>
+                  <xs:element name="soapReplicationURL" type="xs:anyURI"/>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="KeyInfo" type="ns2:KeyInfoType"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" ref="tns:communicationGraph"/>
+            <xs:element minOccurs="0" name="maximumTimeToSyncRegistry" type="xs:integer"/>
+            <xs:element name="maximumTimeToGetChanges" type="xs:integer"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Signature" type="ns2:SignatureType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="toSignatures">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Signature" type="ns2:SignatureType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="transfer_custody" type="tns:transfer_custody"/>
+      <xs:complexType name="changeRecordID_type">
+        <xs:sequence>
+          <xs:element name="nodeID" type="xs:string"/>
+          <xs:element minOccurs="0" name="originatingUSN" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="highWaterMarkVector_type">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="highWaterMark" nillable="true" type="tns:changeRecordID_type"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="transfer_custody">
+        <xs:sequence>
+          <xs:element ref="ns3:transferToken"/>
+          <xs:element ref="ns3:keyBag"/>
+          <xs:element ref="ns3:transferOperationalInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="operatorStatus_type">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="new"/>
+          <xs:enumeration value="normal"/>
+          <xs:enumeration value="resigned"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="urn:uddi-org:policy_v3_instanceParms" version="1.0" xmlns:tns="urn:uddi-org:policy_v3_instanceParms" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="UDDIinstanceParmsContainer" type="tns:UDDIinstanceParmsContainer_type"/>
+      <xs:element name="authInfoUse" type="tns:authInfoUse_type"/>
+      <xs:element name="defaultSortOrder" type="xs:string"/>
+      <xs:element name="filterUsingFindAPI" type="tns:filterUsingFindAPI_type"/>
+      <xs:element name="maximumRequestMessageSize" type="xs:integer"/>
+      <xs:complexType name="UDDIinstanceParmsContainer_type">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="authInfoUse_type">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="required"/>
+          <xs:enumeration value="optional"/>
+          <xs:enumeration value="ignored"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="filterUsingFindAPI_type">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="supported"/>
+          <xs:enumeration value="unsupported"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:uddi-org:policy_v3" version="1.0" xmlns:ns1="http://www.w3.org/2000/09/xmldsig#" xmlns:tns="urn:uddi-org:policy_v3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://www.w3.org/2000/09/xmldsig#"/>
+      <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+      <xs:element name="policies">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="policy" nillable="true">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="policyName" type="xs:string"/>
+                  <xs:element maxOccurs="unbounded" name="policyDescription" type="tns:policyDescription_type"/>
+                  <xs:element name="policyDecisionPoint" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="Signature" type="ns1:SignatureType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="policy">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="policyName" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" name="policyDescription" type="tns:policyDescription_type"/>
+            <xs:element name="policyDecisionPoint" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="policyDecisionPoint" type="xs:string"/>
+      <xs:element name="policyDescription" type="tns:policyDescription_type"/>
+      <xs:element name="policyName" type="xs:string"/>
+      <xs:complexType name="policyDescription_type">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute ref="xml:lang"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:uddi-org:custody_v3" version="1.0" xmlns:tns="urn:uddi-org:custody_v3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="urn:uddi-org:api_v3"/>
+      <xs:element name="discard_transferToken" type="tns:discard_transferToken"/>
+      <xs:element name="get_transferToken" type="tns:get_transferToken"/>
+      <xs:element name="keyBag" type="tns:keyBag"/>
+      <xs:element name="transferOperationalInfo" type="tns:transferOperationalInfo"/>
+      <xs:element name="transferToken" type="tns:transferToken"/>
+      <xs:element name="transfer_entities" type="tns:transfer_entities"/>
+      <xs:complexType name="transferOperationalInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:authorizedName"/>
+          <xs:element minOccurs="0" ref="ns1:nodeID"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="transfer_entities">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:authInfo"/>
+          <xs:element name="transferToken" type="tns:transferToken"/>
+          <xs:element name="keyBag" type="tns:keyBag"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="transferToken">
+        <xs:sequence>
+          <xs:element ref="ns1:nodeID"/>
+          <xs:element name="expirationTime" type="xs:dateTime"/>
+          <xs:element name="opaqueToken" type="xs:base64Binary"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="keyBag">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="key" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="discard_transferToken">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:authInfo"/>
+          <xs:element minOccurs="0" name="transferToken" type="tns:transferToken"/>
+          <xs:element minOccurs="0" name="keyBag" type="tns:keyBag"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="get_transferToken">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:authInfo"/>
+          <xs:element name="keyBag" type="tns:keyBag"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:uddi-org:api_v3" version="1.0" xmlns:ns1="http://www.w3.org/2000/09/xmldsig#" xmlns:tns="urn:uddi-org:api_v3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://www.w3.org/2000/09/xmldsig#"/>
+      <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+      <xs:element name="accessPoint" type="tns:accessPoint"/>
+      <xs:element name="actualCount" type="xs:int"/>
+      <xs:element name="add_publisherAssertions" type="tns:add_publisherAssertions"/>
+      <xs:element name="address" type="tns:address"/>
+      <xs:element name="addressLine" type="tns:addressLine"/>
+      <xs:element name="assertionStatusItem" type="tns:assertionStatusItem"/>
+      <xs:element name="assertionStatusReport" type="tns:assertionStatusReport"/>
+      <xs:element name="authInfo" type="xs:string"/>
+      <xs:element name="authToken" type="tns:authToken"/>
+      <xs:element name="authorizedName" type="xs:string"/>
+      <xs:element name="bindingDetail" type="tns:bindingDetail"/>
+      <xs:element name="bindingKey" type="xs:string"/>
+      <xs:element name="bindingTemplate" type="tns:bindingTemplate"/>
+      <xs:element name="bindingTemplates" type="tns:bindingTemplates"/>
+      <xs:element name="businessDetail" type="tns:businessDetail"/>
+      <xs:element name="businessEntity" type="tns:businessEntity"/>
+      <xs:element name="businessInfo" type="tns:businessInfo"/>
+      <xs:element name="businessInfos" type="tns:businessInfos"/>
+      <xs:element name="businessKey" type="xs:string"/>
+      <xs:element name="businessList" type="tns:businessList"/>
+      <xs:element name="businessService" type="tns:businessService"/>
+      <xs:element name="businessServices" type="tns:businessServices"/>
+      <xs:element name="categoryBag" type="tns:categoryBag"/>
+      <xs:element name="completionStatus" type="tns:completionStatus"/>
+      <xs:element name="contact" type="tns:contact"/>
+      <xs:element name="contacts" type="tns:contacts"/>
+      <xs:element name="delete_binding" type="tns:delete_binding"/>
+      <xs:element name="delete_business" type="tns:delete_business"/>
+      <xs:element name="delete_publisherAssertions" type="tns:delete_publisherAssertions"/>
+      <xs:element name="delete_service" type="tns:delete_service"/>
+      <xs:element name="delete_tModel" type="tns:delete_tModel"/>
+      <xs:element name="description" type="tns:description"/>
+      <xs:element name="discard_authToken" type="tns:discard_authToken"/>
+      <xs:element name="discoveryURL" type="tns:discoveryURL"/>
+      <xs:element name="discoveryURLs" type="tns:discoveryURLs"/>
+      <xs:element name="dispositionReport" type="tns:dispositionReport"/>
+      <xs:element name="email" type="tns:email"/>
+      <xs:element name="errInfo" type="tns:errInfo"/>
+      <xs:element name="findQualifier" type="xs:string"/>
+      <xs:element name="findQualifiers" type="tns:findQualifiers"/>
+      <xs:element name="find_binding" type="tns:find_binding"/>
+      <xs:element name="find_business" type="tns:find_business"/>
+      <xs:element name="find_relatedBusinesses" type="tns:find_relatedBusinesses"/>
+      <xs:element name="find_service" type="tns:find_service"/>
+      <xs:element name="find_tModel" type="tns:find_tModel"/>
+      <xs:element name="fromKey" type="xs:string"/>
+      <xs:element name="get_assertionStatusReport" type="tns:get_assertionStatusReport"/>
+      <xs:element name="get_authToken" type="tns:get_authToken"/>
+      <xs:element name="get_bindingDetail" type="tns:get_bindingDetail"/>
+      <xs:element name="get_businessDetail" type="tns:get_businessDetail"/>
+      <xs:element name="get_operationalInfo" type="tns:get_operationalInfo"/>
+      <xs:element name="get_publisherAssertions" type="tns:get_publisherAssertions"/>
+      <xs:element name="get_registeredInfo" type="tns:get_registeredInfo"/>
+      <xs:element name="get_serviceDetail" type="tns:get_serviceDetail"/>
+      <xs:element name="get_tModelDetail" type="tns:get_tModelDetail"/>
+      <xs:element name="hostingRedirector" type="tns:hostingRedirector"/>
+      <xs:element name="identifierBag" type="tns:identifierBag"/>
+      <xs:element name="includeCount" type="xs:int"/>
+      <xs:element name="infoSelection" type="tns:infoSelection"/>
+      <xs:element name="instanceDetails" type="tns:instanceDetails"/>
+      <xs:element name="instanceParms" type="xs:string"/>
+      <xs:element name="keyedReference" type="tns:keyedReference"/>
+      <xs:element name="keyedReferenceGroup" type="tns:keyedReferenceGroup"/>
+      <xs:element name="keysOwned" type="tns:keysOwned"/>
+      <xs:element name="listDescription" type="tns:listDescription"/>
+      <xs:element name="listHead" type="xs:int"/>
+      <xs:element name="name" type="tns:name"/>
+      <xs:element name="nodeID" type="xs:string"/>
+      <xs:element name="operationalInfo" type="tns:operationalInfo"/>
+      <xs:element name="operationalInfos" type="tns:operationalInfos"/>
+      <xs:element name="overviewDoc" type="tns:overviewDoc"/>
+      <xs:element name="overviewURL" type="tns:overviewURL"/>
+      <xs:element name="personName" type="tns:personName"/>
+      <xs:element name="phone" type="tns:phone"/>
+      <xs:element name="publisherAssertion" type="tns:publisherAssertion"/>
+      <xs:element name="publisherAssertions" type="tns:publisherAssertions"/>
+      <xs:element name="publisherAssertionsResponse" type="tns:publisherAssertionsResponse"/>
+      <xs:element name="registeredInfo" type="tns:registeredInfo"/>
+      <xs:element name="relatedBusinessInfo" type="tns:relatedBusinessInfo"/>
+      <xs:element name="relatedBusinessInfos" type="tns:relatedBusinessInfos"/>
+      <xs:element name="relatedBusinessesList" type="tns:relatedBusinessesList"/>
+      <xs:element name="result" type="tns:result"/>
+      <xs:element name="save_binding" type="tns:save_binding"/>
+      <xs:element name="save_business" type="tns:save_business"/>
+      <xs:element name="save_service" type="tns:save_service"/>
+      <xs:element name="save_tModel" type="tns:save_tModel"/>
+      <xs:element name="serviceDetail" type="tns:serviceDetail"/>
+      <xs:element name="serviceInfo" type="tns:serviceInfo"/>
+      <xs:element name="serviceInfos" type="tns:serviceInfos"/>
+      <xs:element name="serviceKey" type="xs:string"/>
+      <xs:element name="serviceList" type="tns:serviceList"/>
+      <xs:element name="set_publisherAssertions" type="tns:set_publisherAssertions"/>
+      <xs:element name="sharedRelationships" type="tns:sharedRelationships"/>
+      <xs:element name="tModel" type="tns:tModel"/>
+      <xs:element name="tModelBag" type="tns:tModelBag"/>
+      <xs:element name="tModelDetail" type="tns:tModelDetail"/>
+      <xs:element name="tModelInfo" type="tns:tModelInfo"/>
+      <xs:element name="tModelInfos" type="tns:tModelInfos"/>
+      <xs:element name="tModelInstanceDetails" type="tns:tModelInstanceDetails"/>
+      <xs:element name="tModelInstanceInfo" type="tns:tModelInstanceInfo"/>
+      <xs:element name="tModelKey" type="xs:string"/>
+      <xs:element name="tModelList" type="tns:tModelList"/>
+      <xs:element name="toKey" type="xs:string"/>
+      <xs:complexType name="save_tModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" ref="tns:tModel"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tModel">
+        <xs:sequence>
+          <xs:element name="name" type="tns:name"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" nillable="true" type="tns:description"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="overviewDoc" nillable="true" type="tns:overviewDoc"/>
+          <xs:element minOccurs="0" name="identifierBag" type="tns:identifierBag"/>
+          <xs:element minOccurs="0" name="categoryBag" type="tns:categoryBag"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:Signature"/>
+        </xs:sequence>
+        <xs:attribute name="tModelKey" type="xs:string"/>
+        <xs:attribute name="deleted" type="xs:boolean"/>
+      </xs:complexType>
+      <xs:complexType name="name">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute ref="xml:lang"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="description">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute ref="xml:lang"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="overviewDoc">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" type="tns:description"/>
+          <xs:element minOccurs="0" name="overviewURL" type="tns:overviewURL"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="overviewURL">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="useType" type="xs:string"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="identifierBag">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="keyedReference" type="tns:keyedReference"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="keyedReference">
+        <xs:sequence/>
+        <xs:attribute name="tModelKey" type="xs:string" use="required"/>
+        <xs:attribute name="keyName" type="xs:string"/>
+        <xs:attribute name="keyValue" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="categoryBag">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="keyedReference" type="tns:keyedReference"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="keyedReferenceGroup" type="tns:keyedReferenceGroup"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="keyedReferenceGroup">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="keyedReference" nillable="true" type="tns:keyedReference"/>
+        </xs:sequence>
+        <xs:attribute name="tModelKey" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="tModelDetail">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="tModel" nillable="true" type="tns:tModel"/>
+        </xs:sequence>
+        <xs:attribute name="truncated" type="xs:boolean"/>
+      </xs:complexType>
+      <xs:complexType name="delete_binding">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" name="bindingKey" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="delete_business">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" name="businessKey" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="add_publisherAssertions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" ref="tns:publisherAssertion"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publisherAssertion">
+        <xs:sequence>
+          <xs:element name="fromKey" type="xs:string"/>
+          <xs:element name="toKey" type="xs:string"/>
+          <xs:element name="keyedReference" type="tns:keyedReference"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:Signature"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="save_service">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" ref="tns:businessService"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="businessService">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="name" nillable="true" type="tns:name"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" nillable="true" type="tns:description"/>
+          <xs:element minOccurs="0" name="bindingTemplates" type="tns:bindingTemplates"/>
+          <xs:element minOccurs="0" name="categoryBag" type="tns:categoryBag"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:Signature"/>
+        </xs:sequence>
+        <xs:attribute name="serviceKey" type="xs:string"/>
+        <xs:attribute name="businessKey" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="bindingTemplates">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" ref="tns:bindingTemplate"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="bindingTemplate">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" nillable="true" type="tns:description"/>
+          <xs:element minOccurs="0" name="accessPoint" type="tns:accessPoint"/>
+          <xs:element minOccurs="0" name="hostingRedirector" type="tns:hostingRedirector"/>
+          <xs:element minOccurs="0" name="tModelInstanceDetails" type="tns:tModelInstanceDetails"/>
+          <xs:element minOccurs="0" name="categoryBag" type="tns:categoryBag"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:Signature"/>
+        </xs:sequence>
+        <xs:attribute name="bindingKey" type="xs:string"/>
+        <xs:attribute name="serviceKey" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="accessPoint">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="useType" type="xs:string"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="hostingRedirector">
+        <xs:sequence/>
+        <xs:attribute name="bindingKey" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="tModelInstanceDetails">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="tModelInstanceInfo" type="tns:tModelInstanceInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tModelInstanceInfo">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" nillable="true" type="tns:description"/>
+          <xs:element minOccurs="0" name="instanceDetails" type="tns:instanceDetails"/>
+        </xs:sequence>
+        <xs:attribute name="tModelKey" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="instanceDetails">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" type="tns:description"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="overviewDoc" type="tns:overviewDoc"/>
+          <xs:element minOccurs="0" name="instanceParms" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="serviceDetail">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="businessService" nillable="true" type="tns:businessService"/>
+        </xs:sequence>
+        <xs:attribute name="truncated" type="xs:boolean"/>
+      </xs:complexType>
+      <xs:complexType name="set_publisherAssertions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="publisherAssertion" nillable="true" type="tns:publisherAssertion"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publisherAssertions">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="publisherAssertion" nillable="true" type="tns:publisherAssertion"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="delete_publisherAssertions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" ref="tns:publisherAssertion"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="get_publisherAssertions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="publisherAssertionsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="publisherAssertion" nillable="true" type="tns:publisherAssertion"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="delete_service">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" name="serviceKey" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="save_binding">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" ref="tns:bindingTemplate"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="bindingDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="listDescription" type="tns:listDescription"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="bindingTemplate" nillable="true" type="tns:bindingTemplate"/>
+        </xs:sequence>
+        <xs:attribute name="truncated" type="xs:boolean"/>
+      </xs:complexType>
+      <xs:complexType name="listDescription">
+        <xs:sequence>
+          <xs:element name="includeCount" type="xs:int"/>
+          <xs:element name="actualCount" type="xs:int"/>
+          <xs:element name="listHead" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="save_business">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" ref="tns:businessEntity"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="businessEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="discoveryURLs" type="tns:discoveryURLs"/>
+          <xs:element maxOccurs="unbounded" name="name" type="tns:name"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" nillable="true" type="tns:description"/>
+          <xs:element minOccurs="0" name="contacts" type="tns:contacts"/>
+          <xs:element minOccurs="0" name="businessServices" type="tns:businessServices"/>
+          <xs:element minOccurs="0" name="identifierBag" type="tns:identifierBag"/>
+          <xs:element minOccurs="0" name="categoryBag" type="tns:categoryBag"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns1:Signature"/>
+        </xs:sequence>
+        <xs:attribute name="businessKey" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="discoveryURLs">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="discoveryURL" type="tns:discoveryURL"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="discoveryURL">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="useType" type="xs:string"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="contacts">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="contact" type="tns:contact"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contact">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" nillable="true" type="tns:description"/>
+          <xs:element maxOccurs="unbounded" name="personName" type="tns:personName"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="phone" nillable="true" type="tns:phone"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="email" nillable="true" type="tns:email"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="address" nillable="true" type="tns:address"/>
+        </xs:sequence>
+        <xs:attribute name="useType" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="personName">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute ref="xml:lang"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="phone">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="useType" type="xs:string"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="email">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="useType" type="xs:string"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="address">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="addressLine" type="tns:addressLine"/>
+        </xs:sequence>
+        <xs:attribute ref="xml:lang"/>
+        <xs:attribute name="useType" type="xs:string"/>
+        <xs:attribute name="sortCode" type="xs:string"/>
+        <xs:attribute name="tModelKey" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="addressLine">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="keyName" type="xs:string"/>
+            <xs:attribute name="keyValue" type="xs:string"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="businessServices">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" ref="tns:businessService"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="businessDetail">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="businessEntity" nillable="true" type="tns:businessEntity"/>
+        </xs:sequence>
+        <xs:attribute name="truncated" type="xs:boolean"/>
+      </xs:complexType>
+      <xs:complexType name="get_registeredInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="infoSelection" type="tns:infoSelection" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="registeredInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="businessInfos" type="tns:businessInfos"/>
+          <xs:element minOccurs="0" name="tModelInfos" type="tns:tModelInfos"/>
+        </xs:sequence>
+        <xs:attribute name="truncated" type="xs:boolean"/>
+      </xs:complexType>
+      <xs:complexType name="businessInfos">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="businessInfo" type="tns:businessInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="businessInfo">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="name" type="tns:name"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" nillable="true" type="tns:description"/>
+          <xs:element minOccurs="0" name="serviceInfos" type="tns:serviceInfos"/>
+        </xs:sequence>
+        <xs:attribute name="businessKey" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="serviceInfos">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="serviceInfo" type="tns:serviceInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="serviceInfo">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="name" nillable="true" type="tns:name"/>
+        </xs:sequence>
+        <xs:attribute name="serviceKey" type="xs:string" use="required"/>
+        <xs:attribute name="businessKey" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="tModelInfos">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="tModelInfo" type="tns:tModelInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tModelInfo">
+        <xs:sequence>
+          <xs:element name="name" type="tns:name"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" nillable="true" type="tns:description"/>
+        </xs:sequence>
+        <xs:attribute name="tModelKey" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="get_assertionStatusReport">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element minOccurs="0" name="completionStatus" type="tns:completionStatus"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="assertionStatusReport">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="assertionStatusItem" nillable="true" type="tns:assertionStatusItem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="assertionStatusItem">
+        <xs:sequence>
+          <xs:element name="fromKey" type="xs:string"/>
+          <xs:element name="toKey" type="xs:string"/>
+          <xs:element name="keyedReference" type="tns:keyedReference"/>
+          <xs:element name="keysOwned" type="tns:keysOwned"/>
+        </xs:sequence>
+        <xs:attribute name="completionStatus" type="tns:completionStatus" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="keysOwned">
+        <xs:all>
+          <xs:element minOccurs="0" name="fromKey" type="xs:string"/>
+          <xs:element minOccurs="0" name="toKey" type="xs:string"/>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="delete_tModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" name="tModelKey" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="find_binding">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element minOccurs="0" name="findQualifiers" type="tns:findQualifiers"/>
+          <xs:element minOccurs="0" name="tModelBag" type="tns:tModelBag"/>
+          <xs:element minOccurs="0" name="find_tModel" type="tns:find_tModel"/>
+          <xs:element minOccurs="0" name="categoryBag" type="tns:categoryBag"/>
+        </xs:sequence>
+        <xs:attribute name="maxRows" type="xs:int"/>
+        <xs:attribute name="serviceKey" type="xs:string"/>
+        <xs:attribute name="listHead" type="xs:int"/>
+      </xs:complexType>
+      <xs:complexType name="findQualifiers">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="findQualifier" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tModelBag">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="tModelKey" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="find_tModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element minOccurs="0" name="findQualifiers" type="tns:findQualifiers"/>
+          <xs:element minOccurs="0" name="name" type="tns:name"/>
+          <xs:element minOccurs="0" name="identifierBag" type="tns:identifierBag"/>
+          <xs:element minOccurs="0" name="categoryBag" type="tns:categoryBag"/>
+        </xs:sequence>
+        <xs:attribute name="maxRows" type="xs:int"/>
+        <xs:attribute name="listHead" type="xs:int"/>
+      </xs:complexType>
+      <xs:complexType name="find_business">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element minOccurs="0" name="findQualifiers" type="tns:findQualifiers"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="name" nillable="true" type="tns:name"/>
+          <xs:element minOccurs="0" name="identifierBag" type="tns:identifierBag"/>
+          <xs:element minOccurs="0" name="categoryBag" type="tns:categoryBag"/>
+          <xs:element minOccurs="0" name="tModelBag" type="tns:tModelBag"/>
+          <xs:element minOccurs="0" name="find_tModel" type="tns:find_tModel"/>
+          <xs:element minOccurs="0" name="discoveryURLs" type="tns:discoveryURLs"/>
+          <xs:element minOccurs="0" name="find_relatedBusinesses" type="tns:find_relatedBusinesses"/>
+        </xs:sequence>
+        <xs:attribute name="maxRows" type="xs:int"/>
+        <xs:attribute name="listHead" type="xs:int"/>
+      </xs:complexType>
+      <xs:complexType name="find_relatedBusinesses">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element minOccurs="0" name="findQualifiers" type="tns:findQualifiers"/>
+          <xs:element minOccurs="0" name="businessKey" type="xs:string"/>
+          <xs:element minOccurs="0" name="fromKey" type="xs:string"/>
+          <xs:element minOccurs="0" name="toKey" type="xs:string"/>
+          <xs:element minOccurs="0" name="keyedReference" type="tns:keyedReference"/>
+        </xs:sequence>
+        <xs:attribute name="maxRows" type="xs:int"/>
+        <xs:attribute name="listHead" type="xs:int"/>
+      </xs:complexType>
+      <xs:complexType name="find_service">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element minOccurs="0" name="findQualifiers" type="tns:findQualifiers"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="name" nillable="true" type="tns:name"/>
+          <xs:element minOccurs="0" name="categoryBag" type="tns:categoryBag"/>
+          <xs:element minOccurs="0" name="tModelBag" type="tns:tModelBag"/>
+          <xs:element minOccurs="0" name="find_tModel" type="tns:find_tModel"/>
+        </xs:sequence>
+        <xs:attribute name="maxRows" type="xs:int"/>
+        <xs:attribute name="businessKey" type="xs:string"/>
+        <xs:attribute name="listHead" type="xs:int"/>
+      </xs:complexType>
+      <xs:complexType name="get_bindingDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" name="bindingKey" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="get_businessDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" name="businessKey" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="get_serviceDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" name="serviceKey" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="get_tModelDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" name="tModelKey" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="businessList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="listDescription" type="tns:listDescription"/>
+          <xs:element minOccurs="0" name="businessInfos" type="tns:businessInfos"/>
+        </xs:sequence>
+        <xs:attribute name="truncated" type="xs:boolean"/>
+      </xs:complexType>
+      <xs:complexType name="relatedBusinessesList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="listDescription" type="tns:listDescription"/>
+          <xs:element name="businessKey" type="xs:string"/>
+          <xs:element minOccurs="0" name="relatedBusinessInfos" type="tns:relatedBusinessInfos"/>
+        </xs:sequence>
+        <xs:attribute name="truncated" type="xs:boolean"/>
+      </xs:complexType>
+      <xs:complexType name="relatedBusinessInfos">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="relatedBusinessInfo" type="tns:relatedBusinessInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="relatedBusinessInfo">
+        <xs:sequence>
+          <xs:element name="businessKey" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" name="name" type="tns:name"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="description" nillable="true" type="tns:description"/>
+          <xs:element maxOccurs="unbounded" name="sharedRelationships" type="tns:sharedRelationships"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sharedRelationships">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="keyedReference" type="tns:keyedReference"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="publisherAssertion" nillable="true" type="tns:publisherAssertion"/>
+        </xs:sequence>
+        <xs:attribute name="direction" type="tns:direction" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="serviceList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="listDescription" type="tns:listDescription"/>
+          <xs:element minOccurs="0" name="serviceInfos" type="tns:serviceInfos"/>
+        </xs:sequence>
+        <xs:attribute name="truncated" type="xs:boolean"/>
+      </xs:complexType>
+      <xs:complexType name="tModelList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="listDescription" type="tns:listDescription"/>
+          <xs:element minOccurs="0" name="tModelInfos" type="tns:tModelInfos"/>
+        </xs:sequence>
+        <xs:attribute name="truncated" type="xs:boolean"/>
+      </xs:complexType>
+      <xs:complexType name="authToken">
+        <xs:sequence>
+          <xs:element name="authInfo" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="dispositionReport">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="result" type="tns:result"/>
+        </xs:sequence>
+        <xs:attribute name="truncated" type="xs:boolean"/>
+      </xs:complexType>
+      <xs:complexType name="result">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="errInfo" type="tns:errInfo"/>
+        </xs:sequence>
+        <xs:attribute name="keyType" type="tns:keyType"/>
+        <xs:attribute name="errno" type="xs:int" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="errInfo">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="errCode" type="xs:string" use="required"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="get_authToken">
+        <xs:sequence/>
+        <xs:attribute name="userID" type="xs:string" use="required"/>
+        <xs:attribute name="cred" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="get_operationalInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authInfo" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" name="entityKey" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="discard_authToken">
+        <xs:sequence>
+          <xs:element name="authInfo" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="operationalInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="created" type="xs:anySimpleType"/>
+          <xs:element minOccurs="0" name="modified" type="xs:anySimpleType"/>
+          <xs:element minOccurs="0" name="modifiedIncludingChildren" type="xs:anySimpleType"/>
+          <xs:element minOccurs="0" name="nodeID" type="xs:string"/>
+          <xs:element minOccurs="0" name="authorizedName" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="entityKey" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="operationalInfos">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="operationalInfo" nillable="true" type="tns:operationalInfo"/>
+        </xs:sequence>
+        <xs:attribute name="truncated" type="xs:boolean"/>
+      </xs:complexType>
+      <xs:simpleType name="infoSelection">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="all"/>
+          <xs:enumeration value="hidden"/>
+          <xs:enumeration value="visible"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="completionStatus">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="status:complete"/>
+          <xs:enumeration value="status:fromKey_incomplete"/>
+          <xs:enumeration value="status:toKey_incomplete"/>
+          <xs:enumeration value="status:both_incomplete"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="direction">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="fromKey"/>
+          <xs:enumeration value="toKey"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="keyType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="businessKey"/>
+          <xs:enumeration value="tModelKey"/>
+          <xs:enumeration value="serviceKey"/>
+          <xs:enumeration value="bindingKey"/>
+          <xs:enumeration value="subscriptionKey"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.w3.org/XML/1998/namespace" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:attribute name="lang" type="xs:string"/>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.w3.org/2000/09/xmldsig#" version="1.0" xmlns:tns="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="CanonicalizationMethod" type="tns:CanonicalizationMethodType"/>
+      <xs:element name="DSAKeyValue" type="tns:DSAKeyValueType"/>
+      <xs:element name="DigestMethod" type="tns:DigestMethodType"/>
+      <xs:element name="DigestValue" type="xs:base64Binary"/>
+      <xs:element name="KeyInfo" type="tns:KeyInfoType"/>
+      <xs:element name="KeyName" type="xs:string"/>
+      <xs:element name="KeyValue" type="tns:KeyValueType"/>
+      <xs:element name="Manifest" type="tns:ManifestType"/>
+      <xs:element name="MgmtData" type="xs:string"/>
+      <xs:element name="Object" type="tns:ObjectType"/>
+      <xs:element name="PGPData" type="tns:PGPDataType"/>
+      <xs:element name="RSAKeyValue" type="tns:RSAKeyValueType"/>
+      <xs:element name="Reference" type="tns:ReferenceType"/>
+      <xs:element name="RetrievalMethod" type="tns:RetrievalMethodType"/>
+      <xs:element name="SPKIData" type="tns:SPKIDataType"/>
+      <xs:element name="Signature" type="tns:SignatureType"/>
+      <xs:element name="SignatureMethod" type="tns:SignatureMethodType"/>
+      <xs:element name="SignatureProperties" type="tns:SignaturePropertiesType"/>
+      <xs:element name="SignatureProperty" type="tns:SignaturePropertyType"/>
+      <xs:element name="SignatureValue" type="tns:SignatureValueType"/>
+      <xs:element name="SignedInfo" type="tns:SignedInfoType"/>
+      <xs:element name="Transform" type="tns:TransformType"/>
+      <xs:element name="Transforms" type="tns:TransformsType"/>
+      <xs:element name="X509Data" type="tns:X509DataType"/>
+      <xs:complexType name="SignatureType">
+        <xs:sequence>
+          <xs:element name="SignedInfo" type="tns:SignedInfoType"/>
+          <xs:element name="SignatureValue" type="tns:SignatureValueType"/>
+          <xs:element minOccurs="0" name="KeyInfo" type="tns:KeyInfoType"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Object" type="tns:ObjectType"/>
+        </xs:sequence>
+        <xs:attribute name="Id" type="xs:ID"/>
+      </xs:complexType>
+      <xs:complexType name="SignedInfoType">
+        <xs:sequence>
+          <xs:element name="CanonicalizationMethod" type="tns:CanonicalizationMethodType"/>
+          <xs:element name="SignatureMethod" type="tns:SignatureMethodType"/>
+          <xs:element maxOccurs="unbounded" name="Reference" type="tns:ReferenceType"/>
+        </xs:sequence>
+        <xs:attribute name="Id" type="xs:ID"/>
+      </xs:complexType>
+      <xs:complexType mixed="true" name="CanonicalizationMethodType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute name="Algorithm" type="xs:anyURI" use="required"/>
+      </xs:complexType>
+      <xs:complexType mixed="true" name="ObjectType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute name="Id" type="xs:ID"/>
+        <xs:attribute name="MimeType" type="xs:string"/>
+        <xs:attribute name="Encoding" type="xs:anyURI"/>
+      </xs:complexType>
+      <xs:complexType mixed="true" name="KeyValueType">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="tns:DSAKeyValue"/>
+            <xs:element ref="tns:RSAKeyValue"/>
+            <xs:any namespace="##other" processContents="lax"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType mixed="true" name="SignatureMethodType">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="HMACOutputLength" type="xs:integer"/>
+            <xs:any namespace="##other" processContents="lax"/>
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="Algorithm" type="xs:anyURI" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="TransformsType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="Transform" type="tns:TransformType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType mixed="true" name="TransformType">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="XPath" type="xs:string"/>
+            <xs:any namespace="##other" processContents="lax"/>
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="Algorithm" type="xs:anyURI" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="ReferenceType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Transforms" type="tns:TransformsType"/>
+          <xs:element name="DigestMethod" type="tns:DigestMethodType"/>
+          <xs:element name="DigestValue" type="xs:base64Binary"/>
+        </xs:sequence>
+        <xs:attribute name="Id" type="xs:ID"/>
+        <xs:attribute name="URI" type="xs:anyURI"/>
+        <xs:attribute name="Type" type="xs:anyURI"/>
+      </xs:complexType>
+      <xs:complexType mixed="true" name="DigestMethodType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute name="Algorithm" type="xs:anyURI" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="SignaturePropertiesType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="SignatureProperty" type="tns:SignaturePropertyType"/>
+        </xs:sequence>
+        <xs:attribute name="Id" type="xs:ID"/>
+      </xs:complexType>
+      <xs:complexType mixed="true" name="SignaturePropertyType">
+        <xs:sequence>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+        <xs:attribute name="Target" type="xs:anyURI" use="required"/>
+        <xs:attribute name="Id" type="xs:ID"/>
+      </xs:complexType>
+      <xs:complexType name="DSAKeyValueType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="P" type="xs:base64Binary"/>
+          <xs:element minOccurs="0" name="Q" type="xs:base64Binary"/>
+          <xs:element minOccurs="0" name="G" type="xs:base64Binary"/>
+          <xs:element name="Y" type="xs:base64Binary"/>
+          <xs:element minOccurs="0" name="J" type="xs:base64Binary"/>
+          <xs:element minOccurs="0" name="Seed" type="xs:base64Binary"/>
+          <xs:element minOccurs="0" name="PgenCounter" type="xs:base64Binary"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="X509DataType">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="X509Certificate" type="xs:base64Binary"/>
+            <xs:element name="X509SKI" type="xs:base64Binary"/>
+            <xs:element name="X509CRL" type="xs:base64Binary"/>
+            <xs:element name="X509SubjectName" type="xs:string"/>
+            <xs:element name="X509IssuerSerial" type="tns:X509IssuerSerialType"/>
+            <xs:any namespace="##other" processContents="lax"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ManifestType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="Reference" type="tns:ReferenceType"/>
+        </xs:sequence>
+        <xs:attribute name="Id" type="xs:ID"/>
+      </xs:complexType>
+      <xs:complexType name="RSAKeyValueType">
+        <xs:sequence>
+          <xs:element name="Modulus" type="xs:base64Binary"/>
+          <xs:element name="Exponent" type="xs:base64Binary"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SPKIDataType">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="SPKISexp" type="xs:base64Binary"/>
+            <xs:any namespace="##other" processContents="lax"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="X509IssuerSerialType">
+        <xs:sequence>
+          <xs:element name="X509IssuerName" type="xs:string"/>
+          <xs:element name="X509SerialNumber" type="xs:integer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RetrievalMethodType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Transforms" type="tns:TransformsType"/>
+        </xs:sequence>
+        <xs:attribute name="URI" type="xs:anyURI"/>
+        <xs:attribute name="Type" type="xs:anyURI"/>
+      </xs:complexType>
+      <xs:complexType name="PGPDataType">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="PGPKeyID" type="xs:base64Binary"/>
+            <xs:element name="PGPKeyPacket" type="xs:base64Binary"/>
+            <xs:any namespace="##other" processContents="lax"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType mixed="true" name="KeyInfoType">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="tns:SPKIData"/>
+            <xs:element ref="tns:KeyName"/>
+            <xs:element ref="tns:PGPData"/>
+            <xs:element ref="tns:MgmtData"/>
+            <xs:element ref="tns:X509Data"/>
+            <xs:element ref="tns:KeyValue"/>
+            <xs:element ref="tns:RetrievalMethod"/>
+            <xs:any namespace="##other" processContents="lax"/>
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="Id" type="xs:ID"/>
+      </xs:complexType>
+      <xs:complexType name="SignatureValueType">
+        <xs:simpleContent>
+          <xs:extension base="xs:base64Binary">
+            <xs:attribute name="Id" type="xs:ID"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="save_serviceResponse">
+    <wsdl:part element="ns1:serviceDetail" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="add_publisherAssertions">
+    <wsdl:part element="ns1:add_publisherAssertions" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="get_registeredInfoResponse">
+    <wsdl:part element="ns1:registeredInfo" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="save_tModel">
+    <wsdl:part element="ns1:save_tModel" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="delete_business">
+    <wsdl:part element="ns1:delete_business" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="save_business">
+    <wsdl:part element="ns1:save_business" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="delete_binding">
+    <wsdl:part element="ns1:delete_binding" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="delete_bindingResponse"></wsdl:message>
+  <wsdl:message name="delete_service">
+    <wsdl:part element="ns1:delete_service" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="add_publisherAssertionsResponse"></wsdl:message>
+  <wsdl:message name="get_assertionStatusReportResponse">
+    <wsdl:part element="ns1:assertionStatusReport" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="delete_serviceResponse"></wsdl:message>
+  <wsdl:message name="save_bindingResponse">
+    <wsdl:part element="ns1:bindingDetail" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="get_publisherAssertionsResponse">
+    <wsdl:part element="ns1:publisherAssertionsResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="delete_tModel">
+    <wsdl:part element="ns1:delete_tModel" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="get_assertionStatusReport">
+    <wsdl:part element="ns1:get_assertionStatusReport" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="set_publisherAssertions">
+    <wsdl:part element="ns1:set_publisherAssertions" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="get_publisherAssertions">
+    <wsdl:part element="ns1:get_publisherAssertions" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="save_binding">
+    <wsdl:part element="ns1:save_binding" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="save_tModelResponse">
+    <wsdl:part element="ns1:tModelDetail" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="delete_publisherAssertionsResponse"></wsdl:message>
+  <wsdl:message name="save_businessResponse">
+    <wsdl:part element="ns1:businessDetail" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="delete_businessResponse"></wsdl:message>
+  <wsdl:message name="delete_publisherAssertions">
+    <wsdl:part element="ns1:delete_publisherAssertions" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="set_publisherAssertionsResponse">
+    <wsdl:part element="ns1:publisherAssertions" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="get_registeredInfo">
+    <wsdl:part element="ns1:get_registeredInfo" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="delete_tModelResponse"></wsdl:message>
+  <wsdl:message name="save_service">
+    <wsdl:part element="ns1:save_service" name="body"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="UDDI_Publication_PortType">
+    <wsdl:operation name="save_tModel">
+      <wsdl:input message="tns:save_tModel" name="save_tModel"></wsdl:input>
+      <wsdl:output message="tns:save_tModelResponse" name="save_tModelResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_binding">
+      <wsdl:input message="tns:delete_binding" name="delete_binding"></wsdl:input>
+      <wsdl:output message="tns:delete_bindingResponse" name="delete_bindingResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_business">
+      <wsdl:input message="tns:delete_business" name="delete_business"></wsdl:input>
+      <wsdl:output message="tns:delete_businessResponse" name="delete_businessResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="add_publisherAssertions">
+      <wsdl:input message="tns:add_publisherAssertions" name="add_publisherAssertions"></wsdl:input>
+      <wsdl:output message="tns:add_publisherAssertionsResponse" name="add_publisherAssertionsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="save_service">
+      <wsdl:input message="tns:save_service" name="save_service"></wsdl:input>
+      <wsdl:output message="tns:save_serviceResponse" name="save_serviceResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="set_publisherAssertions">
+      <wsdl:input message="tns:set_publisherAssertions" name="set_publisherAssertions"></wsdl:input>
+      <wsdl:output message="tns:set_publisherAssertionsResponse" name="set_publisherAssertionsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_publisherAssertions">
+      <wsdl:input message="tns:delete_publisherAssertions" name="delete_publisherAssertions"></wsdl:input>
+      <wsdl:output message="tns:delete_publisherAssertionsResponse" name="delete_publisherAssertionsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_publisherAssertions">
+      <wsdl:input message="tns:get_publisherAssertions" name="get_publisherAssertions"></wsdl:input>
+      <wsdl:output message="tns:get_publisherAssertionsResponse" name="get_publisherAssertionsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_service">
+      <wsdl:input message="tns:delete_service" name="delete_service"></wsdl:input>
+      <wsdl:output message="tns:delete_serviceResponse" name="delete_serviceResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="save_binding">
+      <wsdl:input message="tns:save_binding" name="save_binding"></wsdl:input>
+      <wsdl:output message="tns:save_bindingResponse" name="save_bindingResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="save_business">
+      <wsdl:input message="tns:save_business" name="save_business"></wsdl:input>
+      <wsdl:output message="tns:save_businessResponse" name="save_businessResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_registeredInfo">
+      <wsdl:input message="tns:get_registeredInfo" name="get_registeredInfo"></wsdl:input>
+      <wsdl:output message="tns:get_registeredInfoResponse" name="get_registeredInfoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_assertionStatusReport">
+      <wsdl:input message="tns:get_assertionStatusReport" name="get_assertionStatusReport"></wsdl:input>
+      <wsdl:output message="tns:get_assertionStatusReportResponse" name="get_assertionStatusReportResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_tModel">
+      <wsdl:input message="tns:delete_tModel" name="delete_tModel"></wsdl:input>
+      <wsdl:output message="tns:delete_tModelResponse" name="delete_tModelResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UDDIPublicationServiceSoapBinding" type="tns:UDDI_Publication_PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="delete_binding">
+      <soap:operation soapAction="delete_binding" style="document"/>
+      <wsdl:input name="delete_binding">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="delete_bindingResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="save_tModel">
+      <soap:operation soapAction="save_tModel" style="document"/>
+      <wsdl:input name="save_tModel">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="save_tModelResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="add_publisherAssertions">
+      <soap:operation soapAction="add_publisherAssertions" style="document"/>
+      <wsdl:input name="add_publisherAssertions">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="add_publisherAssertionsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_business">
+      <soap:operation soapAction="delete_business" style="document"/>
+      <wsdl:input name="delete_business">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="delete_businessResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="save_service">
+      <soap:operation soapAction="save_service" style="document"/>
+      <wsdl:input name="save_service">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="save_serviceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_publisherAssertions">
+      <soap:operation soapAction="delete_publisherAssertions" style="document"/>
+      <wsdl:input name="delete_publisherAssertions">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="delete_publisherAssertionsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="set_publisherAssertions">
+      <soap:operation soapAction="set_publisherAssertions" style="document"/>
+      <wsdl:input name="set_publisherAssertions">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="set_publisherAssertionsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_publisherAssertions">
+      <soap:operation soapAction="get_publisherAssertions" style="document"/>
+      <wsdl:input name="get_publisherAssertions">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="get_publisherAssertionsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_service">
+      <soap:operation soapAction="delete_service" style="document"/>
+      <wsdl:input name="delete_service">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="delete_serviceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="save_binding">
+      <soap:operation soapAction="save_binding" style="document"/>
+      <wsdl:input name="save_binding">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="save_bindingResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="save_business">
+      <soap:operation soapAction="save_business" style="document"/>
+      <wsdl:input name="save_business">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="save_businessResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_registeredInfo">
+      <soap:operation soapAction="get_registeredInfo" style="document"/>
+      <wsdl:input name="get_registeredInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="get_registeredInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_assertionStatusReport">
+      <soap:operation soapAction="get_assertionStatusReport" style="document"/>
+      <wsdl:input name="get_assertionStatusReport">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="get_assertionStatusReportResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete_tModel">
+      <soap:operation soapAction="delete_tModel" style="document"/>
+      <wsdl:input name="delete_tModel">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="delete_tModelResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UDDIPublicationService">
+    <wsdl:port binding="tns:UDDIPublicationServiceSoapBinding" name="UDDIPublicationImplPort">
+      <soap:address location="http://192.168.56.101:8080/juddiv3/services/publish"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.56.101:8080/juddiv3/services/publish</con:endpoint></con:endpoints><con:operation isOneWay="false" action="add_publisherAssertions" name="add_publisherAssertions" bindingOperationName="add_publisherAssertions" type="Request-Response" outputName="add_publisherAssertionsResponse" inputName="add_publisherAssertions" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.56.101:8080/juddiv3/services/publish</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:uddi-org:api_v3" xmlns:xd="http://www.w3.org/2000/09/xmldsig#">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:add_publisherAssertions>
+         <!--Optional:-->
+         <urn:authInfo>?</urn:authInfo>
+         <!--1 or more repetitions:-->
+         <urn:publisherAssertion>
+            <urn:fromKey>?</urn:fromKey>
+            <urn:toKey>?</urn:toKey>
+            <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+            <!--Zero or more repetitions:-->
+            <xd:Signature Id="?">
+               <xd:SignedInfo Id="?">
+                  <xd:CanonicalizationMethod Algorithm="?">
+                     e
+                     <!--You may enter ANY elements at this point-->
+                     gero
+                  </xd:CanonicalizationMethod>
+                  <xd:SignatureMethod Algorithm="?">
+                     cum
+                     <!--You have a CHOICE of the next 2 items at this level-->
+                     <xd:HMACOutputLength>?</xd:HMACOutputLength>
+                     <!--You may enter ANY elements at this point-->
+                     sonoras
+                  </xd:SignatureMethod>
+                  <!--1 or more repetitions:-->
+                  <xd:Reference Id="?" URI="?" Type="?">
+                     <!--Optional:-->
+                     <xd:Transforms>
+                        <!--1 or more repetitions:-->
+                        <xd:Transform Algorithm="?">
+                           aeoliam
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:XPath>?</xd:XPath>
+                           <!--You may enter ANY elements at this point-->
+                           quae
+                        </xd:Transform>
+                     </xd:Transforms>
+                     <xd:DigestMethod Algorithm="?">
+                        ventos
+                        <!--You may enter ANY elements at this point-->
+                        verrantque
+                     </xd:DigestMethod>
+                     <xd:DigestValue>cid:146490314097</xd:DigestValue>
+                  </xd:Reference>
+               </xd:SignedInfo>
+               <xd:SignatureValue Id="?">cid:317427861441</xd:SignatureValue>
+               <!--Optional:-->
+               <xd:KeyInfo Id="?">
+                  temperat
+                  <!--You have a CHOICE of the next 8 items at this level-->
+                  <xd:SPKIData>
+                     <!--You have a CHOICE of the next 2 items at this level-->
+                     <xd:SPKISexp>cid:550302650496</xd:SPKISexp>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:SPKIData>
+                  <xd:KeyName>?</xd:KeyName>
+                  <xd:PGPData>
+                     <!--You have a CHOICE of the next 3 items at this level-->
+                     <xd:PGPKeyID>cid:609571869205</xd:PGPKeyID>
+                     <xd:PGPKeyPacket>cid:407862909031</xd:PGPKeyPacket>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:PGPData>
+                  <xd:MgmtData>?</xd:MgmtData>
+                  <xd:X509Data>
+                     <!--You have a CHOICE of the next 6 items at this level-->
+                     <xd:X509Certificate>cid:67093137446</xd:X509Certificate>
+                     <xd:X509SKI>cid:941201055722</xd:X509SKI>
+                     <xd:X509CRL>cid:1011863791735</xd:X509CRL>
+                     <xd:X509SubjectName>?</xd:X509SubjectName>
+                     <xd:X509IssuerSerial>
+                        <xd:X509IssuerName>?</xd:X509IssuerName>
+                        <xd:X509SerialNumber>?</xd:X509SerialNumber>
+                     </xd:X509IssuerSerial>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:X509Data>
+                  <xd:KeyValue>
+                     per
+                     <!--You have a CHOICE of the next 3 items at this level-->
+                     <xd:DSAKeyValue>
+                        <!--Optional:-->
+                        <xd:P>cid:1040045572638</xd:P>
+                        <!--Optional:-->
+                        <xd:Q>cid:623261221306</xd:Q>
+                        <!--Optional:-->
+                        <xd:G>cid:1401474797546</xd:G>
+                        <xd:Y>cid:732918852909</xd:Y>
+                        <!--Optional:-->
+                        <xd:J>cid:234288584344</xd:J>
+                        <!--Optional:-->
+                        <xd:Seed>cid:703623158062</xd:Seed>
+                        <!--Optional:-->
+                        <xd:PgenCounter>cid:1250150102041</xd:PgenCounter>
+                     </xd:DSAKeyValue>
+                     <xd:RSAKeyValue>
+                        <xd:Modulus>cid:880326385154</xd:Modulus>
+                        <xd:Exponent>cid:1136747018892</xd:Exponent>
+                     </xd:RSAKeyValue>
+                     <!--You may enter ANY elements at this point-->
+                     turbine
+                  </xd:KeyValue>
+                  <xd:RetrievalMethod URI="?" Type="?">
+                     <!--Optional:-->
+                     <xd:Transforms>
+                        <!--1 or more repetitions:-->
+                        <xd:Transform Algorithm="?">
+                           circum
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:XPath>?</xd:XPath>
+                           <!--You may enter ANY elements at this point-->
+                           regemque
+                        </xd:Transform>
+                     </xd:Transforms>
+                  </xd:RetrievalMethod>
+                  <!--You may enter ANY elements at this point-->
+                  nimborum
+               </xd:KeyInfo>
+               <!--Zero or more repetitions:-->
+               <xd:Object Id="?" MimeType="?" Encoding="?">
+                  fremunt
+                  <!--You may enter ANY elements at this point-->
+                  foedere
+               </xd:Object>
+            </xd:Signature>
+         </urn:publisherAssertion>
+      </urn:add_publisherAssertions>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="add_publisherAssertions"/></con:call></con:operation><con:operation isOneWay="false" action="delete_binding" name="delete_binding" bindingOperationName="delete_binding" type="Request-Response" outputName="delete_bindingResponse" inputName="delete_binding" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.56.101:8080/juddiv3/services/publish</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:uddi-org:api_v3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:delete_binding>
+         <!--Optional:-->
+         <urn:authInfo>?</urn:authInfo>
+         <!--1 or more repetitions:-->
+         <urn:bindingKey>?</urn:bindingKey>
+      </urn:delete_binding>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="delete_binding"/></con:call></con:operation><con:operation isOneWay="false" action="delete_business" name="delete_business" bindingOperationName="delete_business" type="Request-Response" outputName="delete_businessResponse" inputName="delete_business" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.56.101:8080/juddiv3/services/publish</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:uddi-org:api_v3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:delete_business>
+         <!--Optional:-->
+         <urn:authInfo>?</urn:authInfo>
+         <!--1 or more repetitions:-->
+         <urn:businessKey>?</urn:businessKey>
+      </urn:delete_business>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="delete_business"/></con:call></con:operation><con:operation isOneWay="false" action="delete_publisherAssertions" name="delete_publisherAssertions" bindingOperationName="delete_publisherAssertions" type="Request-Response" outputName="delete_publisherAssertionsResponse" inputName="delete_publisherAssertions" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.56.101:8080/juddiv3/services/publish</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:uddi-org:api_v3" xmlns:xd="http://www.w3.org/2000/09/xmldsig#">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:delete_publisherAssertions>
+         <!--Optional:-->
+         <urn:authInfo>?</urn:authInfo>
+         <!--1 or more repetitions:-->
+         <urn:publisherAssertion>
+            <urn:fromKey>?</urn:fromKey>
+            <urn:toKey>?</urn:toKey>
+            <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+            <!--Zero or more repetitions:-->
+            <xd:Signature Id="?">
+               <xd:SignedInfo Id="?">
+                  <xd:CanonicalizationMethod Algorithm="?">
+                     e
+                     <!--You may enter ANY elements at this point-->
+                     gero
+                  </xd:CanonicalizationMethod>
+                  <xd:SignatureMethod Algorithm="?">
+                     cum
+                     <!--You have a CHOICE of the next 2 items at this level-->
+                     <xd:HMACOutputLength>?</xd:HMACOutputLength>
+                     <!--You may enter ANY elements at this point-->
+                     sonoras
+                  </xd:SignatureMethod>
+                  <!--1 or more repetitions:-->
+                  <xd:Reference Id="?" URI="?" Type="?">
+                     <!--Optional:-->
+                     <xd:Transforms>
+                        <!--1 or more repetitions:-->
+                        <xd:Transform Algorithm="?">
+                           aeoliam
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:XPath>?</xd:XPath>
+                           <!--You may enter ANY elements at this point-->
+                           quae
+                        </xd:Transform>
+                     </xd:Transforms>
+                     <xd:DigestMethod Algorithm="?">
+                        ventos
+                        <!--You may enter ANY elements at this point-->
+                        verrantque
+                     </xd:DigestMethod>
+                     <xd:DigestValue>cid:18693147510</xd:DigestValue>
+                  </xd:Reference>
+               </xd:SignedInfo>
+               <xd:SignatureValue Id="?">cid:680249015718</xd:SignatureValue>
+               <!--Optional:-->
+               <xd:KeyInfo Id="?">
+                  temperat
+                  <!--You have a CHOICE of the next 8 items at this level-->
+                  <xd:SPKIData>
+                     <!--You have a CHOICE of the next 2 items at this level-->
+                     <xd:SPKISexp>cid:103462463090</xd:SPKISexp>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:SPKIData>
+                  <xd:KeyName>?</xd:KeyName>
+                  <xd:PGPData>
+                     <!--You have a CHOICE of the next 3 items at this level-->
+                     <xd:PGPKeyID>cid:898127507083</xd:PGPKeyID>
+                     <xd:PGPKeyPacket>cid:132859630511</xd:PGPKeyPacket>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:PGPData>
+                  <xd:MgmtData>?</xd:MgmtData>
+                  <xd:X509Data>
+                     <!--You have a CHOICE of the next 6 items at this level-->
+                     <xd:X509Certificate>cid:84770031236</xd:X509Certificate>
+                     <xd:X509SKI>cid:87104435022</xd:X509SKI>
+                     <xd:X509CRL>cid:1139982278698</xd:X509CRL>
+                     <xd:X509SubjectName>?</xd:X509SubjectName>
+                     <xd:X509IssuerSerial>
+                        <xd:X509IssuerName>?</xd:X509IssuerName>
+                        <xd:X509SerialNumber>?</xd:X509SerialNumber>
+                     </xd:X509IssuerSerial>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:X509Data>
+                  <xd:KeyValue>
+                     per
+                     <!--You have a CHOICE of the next 3 items at this level-->
+                     <xd:DSAKeyValue>
+                        <!--Optional:-->
+                        <xd:P>cid:187219956117</xd:P>
+                        <!--Optional:-->
+                        <xd:Q>cid:478793489359</xd:Q>
+                        <!--Optional:-->
+                        <xd:G>cid:1340959277650</xd:G>
+                        <xd:Y>cid:365643354586</xd:Y>
+                        <!--Optional:-->
+                        <xd:J>cid:1313981839172</xd:J>
+                        <!--Optional:-->
+                        <xd:Seed>cid:679128863348</xd:Seed>
+                        <!--Optional:-->
+                        <xd:PgenCounter>cid:168929406960</xd:PgenCounter>
+                     </xd:DSAKeyValue>
+                     <xd:RSAKeyValue>
+                        <xd:Modulus>cid:982758295223</xd:Modulus>
+                        <xd:Exponent>cid:218827938635</xd:Exponent>
+                     </xd:RSAKeyValue>
+                     <!--You may enter ANY elements at this point-->
+                     turbine
+                  </xd:KeyValue>
+                  <xd:RetrievalMethod URI="?" Type="?">
+                     <!--Optional:-->
+                     <xd:Transforms>
+                        <!--1 or more repetitions:-->
+                        <xd:Transform Algorithm="?">
+                           circum
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:XPath>?</xd:XPath>
+                           <!--You may enter ANY elements at this point-->
+                           regemque
+                        </xd:Transform>
+                     </xd:Transforms>
+                  </xd:RetrievalMethod>
+                  <!--You may enter ANY elements at this point-->
+                  nimborum
+               </xd:KeyInfo>
+               <!--Zero or more repetitions:-->
+               <xd:Object Id="?" MimeType="?" Encoding="?">
+                  fremunt
+                  <!--You may enter ANY elements at this point-->
+                  foedere
+               </xd:Object>
+            </xd:Signature>
+         </urn:publisherAssertion>
+      </urn:delete_publisherAssertions>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="delete_publisherAssertions"/></con:call></con:operation><con:operation isOneWay="false" action="delete_service" name="delete_service" bindingOperationName="delete_service" type="Request-Response" outputName="delete_serviceResponse" inputName="delete_service" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.56.101:8080/juddiv3/services/publish</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:uddi-org:api_v3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:delete_service>
+         <!--Optional:-->
+         <urn:authInfo>?</urn:authInfo>
+         <!--1 or more repetitions:-->
+         <urn:serviceKey>?</urn:serviceKey>
+      </urn:delete_service>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="delete_service"/></con:call></con:operation><con:operation isOneWay="false" action="delete_tModel" name="delete_tModel" bindingOperationName="delete_tModel" type="Request-Response" outputName="delete_tModelResponse" inputName="delete_tModel" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.56.101:8080/juddiv3/services/publish</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:uddi-org:api_v3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:delete_tModel>
+         <!--Optional:-->
+         <urn:authInfo>?</urn:authInfo>
+         <!--1 or more repetitions:-->
+         <urn:tModelKey>?</urn:tModelKey>
+      </urn:delete_tModel>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="delete_tModel"/></con:call></con:operation><con:operation isOneWay="false" action="get_assertionStatusReport" name="get_assertionStatusReport" bindingOperationName="get_assertionStatusReport" type="Request-Response" outputName="get_assertionStatusReportResponse" inputName="get_assertionStatusReport" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.56.101:8080/juddiv3/services/publish</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:uddi-org:api_v3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:get_assertionStatusReport>
+         <!--Optional:-->
+         <urn:authInfo>?</urn:authInfo>
+         <!--Optional:-->
+         <urn:completionStatus>?</urn:completionStatus>
+      </urn:get_assertionStatusReport>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="get_assertionStatusReport"/></con:call></con:operation><con:operation isOneWay="false" action="get_publisherAssertions" name="get_publisherAssertions" bindingOperationName="get_publisherAssertions" type="Request-Response" outputName="get_publisherAssertionsResponse" inputName="get_publisherAssertions" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.56.101:8080/juddiv3/services/publish</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:uddi-org:api_v3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:get_publisherAssertions>
+         <!--Optional:-->
+         <urn:authInfo>?</urn:authInfo>
+      </urn:get_publisherAssertions>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="get_publisherAssertions"/></con:call></con:operation><con:operation isOneWay="false" action="get_registeredInfo" name="get_registeredInfo" bindingOperationName="get_registeredInfo" type="Request-Response" outputName="get_registeredInfoResponse" inputName="get_registeredInfo" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.56.101:8080/juddiv3/services/publish</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:uddi-org:api_v3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:get_registeredInfo infoSelection="?">
+         <!--Optional:-->
+         <urn:authInfo>?</urn:authInfo>
+      </urn:get_registeredInfo>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="get_registeredInfo"/></con:call></con:operation><con:operation isOneWay="false" action="save_binding" name="save_binding" bindingOperationName="save_binding" type="Request-Response" outputName="save_bindingResponse" inputName="save_binding" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.56.101:8080/juddiv3/services/publish</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:uddi-org:api_v3" xmlns:xd="http://www.w3.org/2000/09/xmldsig#">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:save_binding>
+         <!--Optional:-->
+         <urn:authInfo>?</urn:authInfo>
+         <!--1 or more repetitions:-->
+         <urn:bindingTemplate bindingKey="?" serviceKey="?">
+            <!--Zero or more repetitions:-->
+            <urn:description xml:lang="?">?</urn:description>
+            <!--Optional:-->
+            <urn:accessPoint useType="?">?</urn:accessPoint>
+            <!--Optional:-->
+            <urn:hostingRedirector bindingKey="?"/>
+            <!--Optional:-->
+            <urn:tModelInstanceDetails>
+               <!--1 or more repetitions:-->
+               <urn:tModelInstanceInfo tModelKey="?">
+                  <!--Zero or more repetitions:-->
+                  <urn:description xml:lang="?">?</urn:description>
+                  <!--Optional:-->
+                  <urn:instanceDetails>
+                     <!--Zero or more repetitions:-->
+                     <urn:description xml:lang="?">?</urn:description>
+                     <!--Zero or more repetitions:-->
+                     <urn:overviewDoc>
+                        <!--Zero or more repetitions:-->
+                        <urn:description xml:lang="?">?</urn:description>
+                        <!--Optional:-->
+                        <urn:overviewURL useType="?">?</urn:overviewURL>
+                     </urn:overviewDoc>
+                     <!--Optional:-->
+                     <urn:instanceParms>?</urn:instanceParms>
+                  </urn:instanceDetails>
+               </urn:tModelInstanceInfo>
+            </urn:tModelInstanceDetails>
+            <!--Optional:-->
+            <urn:categoryBag>
+               <!--Zero or more repetitions:-->
+               <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+               <!--Zero or more repetitions:-->
+               <urn:keyedReferenceGroup tModelKey="?">
+                  <!--Zero or more repetitions:-->
+                  <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+               </urn:keyedReferenceGroup>
+            </urn:categoryBag>
+            <!--Zero or more repetitions:-->
+            <xd:Signature Id="?">
+               <xd:SignedInfo Id="?">
+                  <xd:CanonicalizationMethod Algorithm="?">
+                     e
+                     <!--You may enter ANY elements at this point-->
+                     gero
+                  </xd:CanonicalizationMethod>
+                  <xd:SignatureMethod Algorithm="?">
+                     cum
+                     <!--You have a CHOICE of the next 2 items at this level-->
+                     <xd:HMACOutputLength>?</xd:HMACOutputLength>
+                     <!--You may enter ANY elements at this point-->
+                     sonoras
+                  </xd:SignatureMethod>
+                  <!--1 or more repetitions:-->
+                  <xd:Reference Id="?" URI="?" Type="?">
+                     <!--Optional:-->
+                     <xd:Transforms>
+                        <!--1 or more repetitions:-->
+                        <xd:Transform Algorithm="?">
+                           aeoliam
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:XPath>?</xd:XPath>
+                           <!--You may enter ANY elements at this point-->
+                           quae
+                        </xd:Transform>
+                     </xd:Transforms>
+                     <xd:DigestMethod Algorithm="?">
+                        ventos
+                        <!--You may enter ANY elements at this point-->
+                        verrantque
+                     </xd:DigestMethod>
+                     <xd:DigestValue>cid:574111823248</xd:DigestValue>
+                  </xd:Reference>
+               </xd:SignedInfo>
+               <xd:SignatureValue Id="?">cid:350879819949</xd:SignatureValue>
+               <!--Optional:-->
+               <xd:KeyInfo Id="?">
+                  temperat
+                  <!--You have a CHOICE of the next 8 items at this level-->
+                  <xd:SPKIData>
+                     <!--You have a CHOICE of the next 2 items at this level-->
+                     <xd:SPKISexp>cid:729095851729</xd:SPKISexp>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:SPKIData>
+                  <xd:KeyName>?</xd:KeyName>
+                  <xd:PGPData>
+                     <!--You have a CHOICE of the next 3 items at this level-->
+                     <xd:PGPKeyID>cid:1338957674287</xd:PGPKeyID>
+                     <xd:PGPKeyPacket>cid:1273575913263</xd:PGPKeyPacket>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:PGPData>
+                  <xd:MgmtData>?</xd:MgmtData>
+                  <xd:X509Data>
+                     <!--You have a CHOICE of the next 6 items at this level-->
+                     <xd:X509Certificate>cid:1172317026976</xd:X509Certificate>
+                     <xd:X509SKI>cid:1304284880085</xd:X509SKI>
+                     <xd:X509CRL>cid:1181619276142</xd:X509CRL>
+                     <xd:X509SubjectName>?</xd:X509SubjectName>
+                     <xd:X509IssuerSerial>
+                        <xd:X509IssuerName>?</xd:X509IssuerName>
+                        <xd:X509SerialNumber>?</xd:X509SerialNumber>
+                     </xd:X509IssuerSerial>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:X509Data>
+                  <xd:KeyValue>
+                     per
+                     <!--You have a CHOICE of the next 3 items at this level-->
+                     <xd:DSAKeyValue>
+                        <!--Optional:-->
+                        <xd:P>cid:308116443565</xd:P>
+                        <!--Optional:-->
+                        <xd:Q>cid:1325653527892</xd:Q>
+                        <!--Optional:-->
+                        <xd:G>cid:678631550803</xd:G>
+                        <xd:Y>cid:1349520052102</xd:Y>
+                        <!--Optional:-->
+                        <xd:J>cid:586090711523</xd:J>
+                        <!--Optional:-->
+                        <xd:Seed>cid:726249160335</xd:Seed>
+                        <!--Optional:-->
+                        <xd:PgenCounter>cid:776684358357</xd:PgenCounter>
+                     </xd:DSAKeyValue>
+                     <xd:RSAKeyValue>
+                        <xd:Modulus>cid:1268531142065</xd:Modulus>
+                        <xd:Exponent>cid:440094793518</xd:Exponent>
+                     </xd:RSAKeyValue>
+                     <!--You may enter ANY elements at this point-->
+                     turbine
+                  </xd:KeyValue>
+                  <xd:RetrievalMethod URI="?" Type="?">
+                     <!--Optional:-->
+                     <xd:Transforms>
+                        <!--1 or more repetitions:-->
+                        <xd:Transform Algorithm="?">
+                           circum
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:XPath>?</xd:XPath>
+                           <!--You may enter ANY elements at this point-->
+                           regemque
+                        </xd:Transform>
+                     </xd:Transforms>
+                  </xd:RetrievalMethod>
+                  <!--You may enter ANY elements at this point-->
+                  nimborum
+               </xd:KeyInfo>
+               <!--Zero or more repetitions:-->
+               <xd:Object Id="?" MimeType="?" Encoding="?">
+                  fremunt
+                  <!--You may enter ANY elements at this point-->
+                  foedere
+               </xd:Object>
+            </xd:Signature>
+         </urn:bindingTemplate>
+      </urn:save_binding>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="save_binding"/></con:call></con:operation><con:operation isOneWay="false" action="save_business" name="save_business" bindingOperationName="save_business" type="Request-Response" outputName="save_businessResponse" inputName="save_business" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.56.101:8080/juddiv3/services/publish</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:uddi-org:api_v3" xmlns:xd="http://www.w3.org/2000/09/xmldsig#">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:save_business>
+         <!--Optional:-->
+         <urn:authInfo>?</urn:authInfo>
+         <!--1 or more repetitions:-->
+         <urn:businessEntity businessKey="?">
+            <!--Optional:-->
+            <urn:discoveryURLs>
+               <!--1 or more repetitions:-->
+               <urn:discoveryURL useType="?">?</urn:discoveryURL>
+            </urn:discoveryURLs>
+            <!--1 or more repetitions:-->
+            <urn:name xml:lang="?">?</urn:name>
+            <!--Zero or more repetitions:-->
+            <urn:description xml:lang="?">?</urn:description>
+            <!--Optional:-->
+            <urn:contacts>
+               <!--1 or more repetitions:-->
+               <urn:contact useType="?">
+                  <!--Zero or more repetitions:-->
+                  <urn:description xml:lang="?">?</urn:description>
+                  <!--1 or more repetitions:-->
+                  <urn:personName xml:lang="?">?</urn:personName>
+                  <!--Zero or more repetitions:-->
+                  <urn:phone useType="?">?</urn:phone>
+                  <!--Zero or more repetitions:-->
+                  <urn:email useType="?">?</urn:email>
+                  <!--Zero or more repetitions:-->
+                  <urn:address xml:lang="?" useType="?" sortCode="?" tModelKey="?">
+                     <!--1 or more repetitions:-->
+                     <urn:addressLine keyName="?" keyValue="?">?</urn:addressLine>
+                  </urn:address>
+               </urn:contact>
+            </urn:contacts>
+            <!--Optional:-->
+            <urn:businessServices>
+               <!--1 or more repetitions:-->
+               <urn:businessService serviceKey="?" businessKey="?">
+                  <!--Zero or more repetitions:-->
+                  <urn:name xml:lang="?">?</urn:name>
+                  <!--Zero or more repetitions:-->
+                  <urn:description xml:lang="?">?</urn:description>
+                  <!--Optional:-->
+                  <urn:bindingTemplates>
+                     <!--1 or more repetitions:-->
+                     <urn:bindingTemplate bindingKey="?" serviceKey="?">
+                        <!--Zero or more repetitions:-->
+                        <urn:description xml:lang="?">?</urn:description>
+                        <!--Optional:-->
+                        <urn:accessPoint useType="?">?</urn:accessPoint>
+                        <!--Optional:-->
+                        <urn:hostingRedirector bindingKey="?"/>
+                        <!--Optional:-->
+                        <urn:tModelInstanceDetails>
+                           <!--1 or more repetitions:-->
+                           <urn:tModelInstanceInfo tModelKey="?">
+                              <!--Zero or more repetitions:-->
+                              <urn:description xml:lang="?">?</urn:description>
+                              <!--Optional:-->
+                              <urn:instanceDetails>
+                                 <!--Zero or more repetitions:-->
+                                 <urn:description xml:lang="?">?</urn:description>
+                                 <!--Zero or more repetitions:-->
+                                 <urn:overviewDoc>
+                                    <!--Zero or more repetitions:-->
+                                    <urn:description xml:lang="?">?</urn:description>
+                                    <!--Optional:-->
+                                    <urn:overviewURL useType="?">?</urn:overviewURL>
+                                 </urn:overviewDoc>
+                                 <!--Optional:-->
+                                 <urn:instanceParms>?</urn:instanceParms>
+                              </urn:instanceDetails>
+                           </urn:tModelInstanceInfo>
+                        </urn:tModelInstanceDetails>
+                        <!--Optional:-->
+                        <urn:categoryBag>
+                           <!--Zero or more repetitions:-->
+                           <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+                           <!--Zero or more repetitions:-->
+                           <urn:keyedReferenceGroup tModelKey="?">
+                              <!--Zero or more repetitions:-->
+                              <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+                           </urn:keyedReferenceGroup>
+                        </urn:categoryBag>
+                        <!--Zero or more repetitions:-->
+                        <xd:Signature Id="?">
+                           <xd:SignedInfo Id="?">
+                              <xd:CanonicalizationMethod Algorithm="?">
+                                 e
+                                 <!--You may enter ANY elements at this point-->
+                                 gero
+                              </xd:CanonicalizationMethod>
+                              <xd:SignatureMethod Algorithm="?">
+                                 cum
+                                 <!--You have a CHOICE of the next 2 items at this level-->
+                                 <xd:HMACOutputLength>?</xd:HMACOutputLength>
+                                 <!--You may enter ANY elements at this point-->
+                                 sonoras
+                              </xd:SignatureMethod>
+                              <!--1 or more repetitions:-->
+                              <xd:Reference Id="?" URI="?" Type="?">
+                                 <!--Optional:-->
+                                 <xd:Transforms>
+                                    <!--1 or more repetitions:-->
+                                    <xd:Transform Algorithm="?">
+                                       aeoliam
+                                       <!--You have a CHOICE of the next 2 items at this level-->
+                                       <xd:XPath>?</xd:XPath>
+                                       <!--You may enter ANY elements at this point-->
+                                       quae
+                                    </xd:Transform>
+                                 </xd:Transforms>
+                                 <xd:DigestMethod Algorithm="?">
+                                    ventos
+                                    <!--You may enter ANY elements at this point-->
+                                    verrantque
+                                 </xd:DigestMethod>
+                                 <xd:DigestValue>cid:709917399743</xd:DigestValue>
+                              </xd:Reference>
+                           </xd:SignedInfo>
+                           <xd:SignatureValue Id="?">cid:953100467142</xd:SignatureValue>
+                           <!--Optional:-->
+                           <xd:KeyInfo Id="?">
+                              temperat
+                              <!--You have a CHOICE of the next 8 items at this level-->
+                              <xd:SPKIData>
+                                 <!--You have a CHOICE of the next 2 items at this level-->
+                                 <xd:SPKISexp>cid:518353760771</xd:SPKISexp>
+                                 <!--You may enter ANY elements at this point-->
+                              </xd:SPKIData>
+                              <xd:KeyName>?</xd:KeyName>
+                              <xd:PGPData>
+                                 <!--You have a CHOICE of the next 3 items at this level-->
+                                 <xd:PGPKeyID>cid:223520741865</xd:PGPKeyID>
+                                 <xd:PGPKeyPacket>cid:986296861470</xd:PGPKeyPacket>
+                                 <!--You may enter ANY elements at this point-->
+                              </xd:PGPData>
+                              <xd:MgmtData>?</xd:MgmtData>
+                              <xd:X509Data>
+                                 <!--You have a CHOICE of the next 6 items at this level-->
+                                 <xd:X509Certificate>cid:941042205507</xd:X509Certificate>
+                                 <xd:X509SKI>cid:489604281478</xd:X509SKI>
+                                 <xd:X509CRL>cid:413119226909</xd:X509CRL>
+                                 <xd:X509SubjectName>?</xd:X509SubjectName>
+                                 <xd:X509IssuerSerial>
+                                    <xd:X509IssuerName>?</xd:X509IssuerName>
+                                    <xd:X509SerialNumber>?</xd:X509SerialNumber>
+                                 </xd:X509IssuerSerial>
+                                 <!--You may enter ANY elements at this point-->
+                              </xd:X509Data>
+                              <xd:KeyValue>
+                                 per
+                                 <!--You have a CHOICE of the next 3 items at this level-->
+                                 <xd:DSAKeyValue>
+                                    <!--Optional:-->
+                                    <xd:P>cid:309042404569</xd:P>
+                                    <!--Optional:-->
+                                    <xd:Q>cid:575747854926</xd:Q>
+                                    <!--Optional:-->
+                                    <xd:G>cid:331880816736</xd:G>
+                                    <xd:Y>cid:1069439500143</xd:Y>
+                                    <!--Optional:-->
+                                    <xd:J>cid:148371495880</xd:J>
+                                    <!--Optional:-->
+                                    <xd:Seed>cid:789804635305</xd:Seed>
+                                    <!--Optional:-->
+                                    <xd:PgenCounter>cid:204235225361</xd:PgenCounter>
+                                 </xd:DSAKeyValue>
+                                 <xd:RSAKeyValue>
+                                    <xd:Modulus>cid:1009814992216</xd:Modulus>
+                                    <xd:Exponent>cid:893486024235</xd:Exponent>
+                                 </xd:RSAKeyValue>
+                                 <!--You may enter ANY elements at this point-->
+                                 turbine
+                              </xd:KeyValue>
+                              <xd:RetrievalMethod URI="?" Type="?">
+                                 <!--Optional:-->
+                                 <xd:Transforms>
+                                    <!--1 or more repetitions:-->
+                                    <xd:Transform Algorithm="?">
+                                       circum
+                                       <!--You have a CHOICE of the next 2 items at this level-->
+                                       <xd:XPath>?</xd:XPath>
+                                       <!--You may enter ANY elements at this point-->
+                                       regemque
+                                    </xd:Transform>
+                                 </xd:Transforms>
+                              </xd:RetrievalMethod>
+                              <!--You may enter ANY elements at this point-->
+                              nimborum
+                           </xd:KeyInfo>
+                           <!--Zero or more repetitions:-->
+                           <xd:Object Id="?" MimeType="?" Encoding="?">
+                              fremunt
+                              <!--You may enter ANY elements at this point-->
+                              foedere
+                           </xd:Object>
+                        </xd:Signature>
+                     </urn:bindingTemplate>
+                  </urn:bindingTemplates>
+                  <!--Optional:-->
+                  <urn:categoryBag>
+                     <!--Zero or more repetitions:-->
+                     <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+                     <!--Zero or more repetitions:-->
+                     <urn:keyedReferenceGroup tModelKey="?">
+                        <!--Zero or more repetitions:-->
+                        <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+                     </urn:keyedReferenceGroup>
+                  </urn:categoryBag>
+                  <!--Zero or more repetitions:-->
+                  <xd:Signature Id="?">
+                     <xd:SignedInfo Id="?">
+                        <xd:CanonicalizationMethod Algorithm="?">
+                           ferant
+                           <!--You may enter ANY elements at this point-->
+                           profundum
+                        </xd:CanonicalizationMethod>
+                        <xd:SignatureMethod Algorithm="?">
+                           sceptra
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:HMACOutputLength>?</xd:HMACOutputLength>
+                           <!--You may enter ANY elements at this point-->
+                           et
+                        </xd:SignatureMethod>
+                        <!--1 or more repetitions:-->
+                        <xd:Reference Id="?" URI="?" Type="?">
+                           <!--Optional:-->
+                           <xd:Transforms>
+                              <!--1 or more repetitions:-->
+                              <xd:Transform Algorithm="?">
+                                 turbine
+                                 <!--You have a CHOICE of the next 2 items at this level-->
+                                 <xd:XPath>?</xd:XPath>
+                                 <!--You may enter ANY elements at this point-->
+                                 iovis
+                              </xd:Transform>
+                           </xd:Transforms>
+                           <xd:DigestMethod Algorithm="?">
+                              flammato
+                              <!--You may enter ANY elements at this point-->
+                              speluncis
+                           </xd:DigestMethod>
+                           <xd:DigestValue>cid:319536938386</xd:DigestValue>
+                        </xd:Reference>
+                     </xd:SignedInfo>
+                     <xd:SignatureValue Id="?">cid:392507367936</xd:SignatureValue>
+                     <!--Optional:-->
+                     <xd:KeyInfo Id="?">
+                        profundum
+                        <!--You have a CHOICE of the next 8 items at this level-->
+                        <xd:SPKIData>
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:SPKISexp>cid:965405452530</xd:SPKISexp>
+                           <!--You may enter ANY elements at this point-->
+                        </xd:SPKIData>
+                        <xd:KeyName>?</xd:KeyName>
+                        <xd:PGPData>
+                           <!--You have a CHOICE of the next 3 items at this level-->
+                           <xd:PGPKeyID>cid:884348037542</xd:PGPKeyID>
+                           <xd:PGPKeyPacket>cid:553396166026</xd:PGPKeyPacket>
+                           <!--You may enter ANY elements at this point-->
+                        </xd:PGPData>
+                        <xd:MgmtData>?</xd:MgmtData>
+                        <xd:X509Data>
+                           <!--You have a CHOICE of the next 6 items at this level-->
+                           <xd:X509Certificate>cid:157584825404</xd:X509Certificate>
+                           <xd:X509SKI>cid:40379863114</xd:X509SKI>
+                           <xd:X509CRL>cid:320830737965</xd:X509CRL>
+                           <xd:X509SubjectName>?</xd:X509SubjectName>
+                           <xd:X509IssuerSerial>
+                              <xd:X509IssuerName>?</xd:X509IssuerName>
+                              <xd:X509SerialNumber>?</xd:X509SerialNumber>
+                           </xd:X509IssuerSerial>
+                           <!--You may enter ANY elements at this point-->
+                        </xd:X509Data>
+                        <xd:KeyValue>
+                           bella
+                           <!--You have a CHOICE of the next 3 items at this level-->
+                           <xd:DSAKeyValue>
+                              <!--Optional:-->
+                              <xd:P>cid:424648185926</xd:P>
+                              <!--Optional:-->
+                              <xd:Q>cid:1343186596879</xd:Q>
+                              <!--Optional:-->
+                              <xd:G>cid:1356886797683</xd:G>
+                              <xd:Y>cid:345276376140</xd:Y>
+                              <!--Optional:-->
+                              <xd:J>cid:472907175082</xd:J>
+                              <!--Optional:-->
+                              <xd:Seed>cid:293612551905</xd:Seed>
+                              <!--Optional:-->
+                              <xd:PgenCounter>cid:254864780120</xd:PgenCounter>
+                           </xd:DSAKeyValue>
+                           <xd:RSAKeyValue>
+                              <xd:Modulus>cid:700724511779</xd:Modulus>
+                              <xd:Exponent>cid:1214252453936</xd:Exponent>
+                           </xd:RSAKeyValue>
+                           <!--You may enter ANY elements at this point-->
+                           nubibus
+                        </xd:KeyValue>
+                        <xd:RetrievalMethod URI="?" Type="?">
+                           <!--Optional:-->
+                           <xd:Transforms>
+                              <!--1 or more repetitions:-->
+                              <xd:Transform Algorithm="?">
+                                 flammas
+                                 <!--You have a CHOICE of the next 2 items at this level-->
+                                 <xd:XPath>?</xd:XPath>
+                                 <!--You may enter ANY elements at this point-->
+                                 ac
+                              </xd:Transform>
+                           </xd:Transforms>
+                        </xd:RetrievalMethod>
+                        <!--You may enter ANY elements at this point-->
+                        hoc
+                     </xd:KeyInfo>
+                     <!--Zero or more repetitions:-->
+                     <xd:Object Id="?" MimeType="?" Encoding="?">
+                        rapidum
+                        <!--You may enter ANY elements at this point-->
+                        ac
+                     </xd:Object>
+                  </xd:Signature>
+               </urn:businessService>
+            </urn:businessServices>
+            <!--Optional:-->
+            <urn:identifierBag>
+               <!--1 or more repetitions:-->
+               <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+            </urn:identifierBag>
+            <!--Optional:-->
+            <urn:categoryBag>
+               <!--Zero or more repetitions:-->
+               <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+               <!--Zero or more repetitions:-->
+               <urn:keyedReferenceGroup tModelKey="?">
+                  <!--Zero or more repetitions:-->
+                  <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+               </urn:keyedReferenceGroup>
+            </urn:categoryBag>
+            <!--Zero or more repetitions:-->
+            <xd:Signature Id="?">
+               <xd:SignedInfo Id="?">
+                  <xd:CanonicalizationMethod Algorithm="?">
+                     caelumque
+                     <!--You may enter ANY elements at this point-->
+                     speluncis
+                  </xd:CanonicalizationMethod>
+                  <xd:SignatureMethod Algorithm="?">
+                     circum
+                     <!--You have a CHOICE of the next 2 items at this level-->
+                     <xd:HMACOutputLength>?</xd:HMACOutputLength>
+                     <!--You may enter ANY elements at this point-->
+                     aris
+                  </xd:SignatureMethod>
+                  <!--1 or more repetitions:-->
+                  <xd:Reference Id="?" URI="?" Type="?">
+                     <!--Optional:-->
+                     <xd:Transforms>
+                        <!--1 or more repetitions:-->
+                        <xd:Transform Algorithm="?">
+                           coniunx
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:XPath>?</xd:XPath>
+                           <!--You may enter ANY elements at this point-->
+                           praeterea
+                        </xd:Transform>
+                     </xd:Transforms>
+                     <xd:DigestMethod Algorithm="?">
+                        arce
+                        <!--You may enter ANY elements at this point-->
+                        claustra
+                     </xd:DigestMethod>
+                     <xd:DigestValue>cid:1094943222703</xd:DigestValue>
+                  </xd:Reference>
+               </xd:SignedInfo>
+               <xd:SignatureValue Id="?">cid:1152908252401</xd:SignatureValue>
+               <!--Optional:-->
+               <xd:KeyInfo Id="?">
+                  circum
+                  <!--You have a CHOICE of the next 8 items at this level-->
+                  <xd:SPKIData>
+                     <!--You have a CHOICE of the next 2 items at this level-->
+                     <xd:SPKISexp>cid:465144376130</xd:SPKISexp>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:SPKIData>
+                  <xd:KeyName>?</xd:KeyName>
+                  <xd:PGPData>
+                     <!--You have a CHOICE of the next 3 items at this level-->
+                     <xd:PGPKeyID>cid:546315672463</xd:PGPKeyID>
+                     <xd:PGPKeyPacket>cid:792313423061</xd:PGPKeyPacket>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:PGPData>
+                  <xd:MgmtData>?</xd:MgmtData>
+                  <xd:X509Data>
+                     <!--You have a CHOICE of the next 6 items at this level-->
+                     <xd:X509Certificate>cid:816324780656</xd:X509Certificate>
+                     <xd:X509SKI>cid:1123666984385</xd:X509SKI>
+                     <xd:X509CRL>cid:11823881215</xd:X509CRL>
+                     <xd:X509SubjectName>?</xd:X509SubjectName>
+                     <xd:X509IssuerSerial>
+                        <xd:X509IssuerName>?</xd:X509IssuerName>
+                        <xd:X509SerialNumber>?</xd:X509SerialNumber>
+                     </xd:X509IssuerSerial>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:X509Data>
+                  <xd:KeyValue>
+                     imperio
+                     <!--You have a CHOICE of the next 3 items at this level-->
+                     <xd:DSAKeyValue>
+                        <!--Optional:-->
+                        <xd:P>cid:669182582537</xd:P>
+                        <!--Optional:-->
+                        <xd:Q>cid:359030891229</xd:Q>
+                        <!--Optional:-->
+                        <xd:G>cid:1084002454687</xd:G>
+                        <xd:Y>cid:500502459246</xd:Y>
+                        <!--Optional:-->
+                        <xd:J>cid:1222907517779</xd:J>
+                        <!--Optional:-->
+                        <xd:Seed>cid:743445674289</xd:Seed>
+                        <!--Optional:-->
+                        <xd:PgenCounter>cid:1038955113579</xd:PgenCounter>
+                     </xd:DSAKeyValue>
+                     <xd:RSAKeyValue>
+                        <xd:Modulus>cid:804747757671</xd:Modulus>
+                        <xd:Exponent>cid:872647835184</xd:Exponent>
+                     </xd:RSAKeyValue>
+                     <!--You may enter ANY elements at this point-->
+                     certo
+                  </xd:KeyValue>
+                  <xd:RetrievalMethod URI="?" Type="?">
+                     <!--Optional:-->
+                     <xd:Transforms>
+                        <!--1 or more repetitions:-->
+                        <xd:Transform Algorithm="?">
+                           quisquam
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:XPath>?</xd:XPath>
+                           <!--You may enter ANY elements at this point-->
+                           et
+                        </xd:Transform>
+                     </xd:Transforms>
+                  </xd:RetrievalMethod>
+                  <!--You may enter ANY elements at this point-->
+                  ac
+               </xd:KeyInfo>
+               <!--Zero or more repetitions:-->
+               <xd:Object Id="?" MimeType="?" Encoding="?">
+                  feta
+                  <!--You may enter ANY elements at this point-->
+                  ac
+               </xd:Object>
+            </xd:Signature>
+         </urn:businessEntity>
+      </urn:save_business>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="save_business"/></con:call></con:operation><con:operation isOneWay="false" action="save_service" name="save_service" bindingOperationName="save_service" type="Request-Response" outputName="save_serviceResponse" inputName="save_service" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.56.101:8080/juddiv3/services/publish</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:uddi-org:api_v3" xmlns:xd="http://www.w3.org/2000/09/xmldsig#">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:save_service>
+         <!--Optional:-->
+         <urn:authInfo>?</urn:authInfo>
+         <!--1 or more repetitions:-->
+         <urn:businessService serviceKey="?" businessKey="?">
+            <!--Zero or more repetitions:-->
+            <urn:name xml:lang="?">?</urn:name>
+            <!--Zero or more repetitions:-->
+            <urn:description xml:lang="?">?</urn:description>
+            <!--Optional:-->
+            <urn:bindingTemplates>
+               <!--1 or more repetitions:-->
+               <urn:bindingTemplate bindingKey="?" serviceKey="?">
+                  <!--Zero or more repetitions:-->
+                  <urn:description xml:lang="?">?</urn:description>
+                  <!--Optional:-->
+                  <urn:accessPoint useType="?">?</urn:accessPoint>
+                  <!--Optional:-->
+                  <urn:hostingRedirector bindingKey="?"/>
+                  <!--Optional:-->
+                  <urn:tModelInstanceDetails>
+                     <!--1 or more repetitions:-->
+                     <urn:tModelInstanceInfo tModelKey="?">
+                        <!--Zero or more repetitions:-->
+                        <urn:description xml:lang="?">?</urn:description>
+                        <!--Optional:-->
+                        <urn:instanceDetails>
+                           <!--Zero or more repetitions:-->
+                           <urn:description xml:lang="?">?</urn:description>
+                           <!--Zero or more repetitions:-->
+                           <urn:overviewDoc>
+                              <!--Zero or more repetitions:-->
+                              <urn:description xml:lang="?">?</urn:description>
+                              <!--Optional:-->
+                              <urn:overviewURL useType="?">?</urn:overviewURL>
+                           </urn:overviewDoc>
+                           <!--Optional:-->
+                           <urn:instanceParms>?</urn:instanceParms>
+                        </urn:instanceDetails>
+                     </urn:tModelInstanceInfo>
+                  </urn:tModelInstanceDetails>
+                  <!--Optional:-->
+                  <urn:categoryBag>
+                     <!--Zero or more repetitions:-->
+                     <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+                     <!--Zero or more repetitions:-->
+                     <urn:keyedReferenceGroup tModelKey="?">
+                        <!--Zero or more repetitions:-->
+                        <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+                     </urn:keyedReferenceGroup>
+                  </urn:categoryBag>
+                  <!--Zero or more repetitions:-->
+                  <xd:Signature Id="?">
+                     <xd:SignedInfo Id="?">
+                        <xd:CanonicalizationMethod Algorithm="?">
+                           e
+                           <!--You may enter ANY elements at this point-->
+                           gero
+                        </xd:CanonicalizationMethod>
+                        <xd:SignatureMethod Algorithm="?">
+                           cum
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:HMACOutputLength>?</xd:HMACOutputLength>
+                           <!--You may enter ANY elements at this point-->
+                           sonoras
+                        </xd:SignatureMethod>
+                        <!--1 or more repetitions:-->
+                        <xd:Reference Id="?" URI="?" Type="?">
+                           <!--Optional:-->
+                           <xd:Transforms>
+                              <!--1 or more repetitions:-->
+                              <xd:Transform Algorithm="?">
+                                 aeoliam
+                                 <!--You have a CHOICE of the next 2 items at this level-->
+                                 <xd:XPath>?</xd:XPath>
+                                 <!--You may enter ANY elements at this point-->
+                                 quae
+                              </xd:Transform>
+                           </xd:Transforms>
+                           <xd:DigestMethod Algorithm="?">
+                              ventos
+                              <!--You may enter ANY elements at this point-->
+                              verrantque
+                           </xd:DigestMethod>
+                           <xd:DigestValue>cid:949317583966</xd:DigestValue>
+                        </xd:Reference>
+                     </xd:SignedInfo>
+                     <xd:SignatureValue Id="?">cid:1153004116538</xd:SignatureValue>
+                     <!--Optional:-->
+                     <xd:KeyInfo Id="?">
+                        temperat
+                        <!--You have a CHOICE of the next 8 items at this level-->
+                        <xd:SPKIData>
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:SPKISexp>cid:1013741359572</xd:SPKISexp>
+                           <!--You may enter ANY elements at this point-->
+                        </xd:SPKIData>
+                        <xd:KeyName>?</xd:KeyName>
+                        <xd:PGPData>
+                           <!--You have a CHOICE of the next 3 items at this level-->
+                           <xd:PGPKeyID>cid:59216139872</xd:PGPKeyID>
+                           <xd:PGPKeyPacket>cid:547601845048</xd:PGPKeyPacket>
+                           <!--You may enter ANY elements at this point-->
+                        </xd:PGPData>
+                        <xd:MgmtData>?</xd:MgmtData>
+                        <xd:X509Data>
+                           <!--You have a CHOICE of the next 6 items at this level-->
+                           <xd:X509Certificate>cid:19327918913</xd:X509Certificate>
+                           <xd:X509SKI>cid:989764572965</xd:X509SKI>
+                           <xd:X509CRL>cid:1154066148071</xd:X509CRL>
+                           <xd:X509SubjectName>?</xd:X509SubjectName>
+                           <xd:X509IssuerSerial>
+                              <xd:X509IssuerName>?</xd:X509IssuerName>
+                              <xd:X509SerialNumber>?</xd:X509SerialNumber>
+                           </xd:X509IssuerSerial>
+                           <!--You may enter ANY elements at this point-->
+                        </xd:X509Data>
+                        <xd:KeyValue>
+                           per
+                           <!--You have a CHOICE of the next 3 items at this level-->
+                           <xd:DSAKeyValue>
+                              <!--Optional:-->
+                              <xd:P>cid:1305045720058</xd:P>
+                              <!--Optional:-->
+                              <xd:Q>cid:1025834301314</xd:Q>
+                              <!--Optional:-->
+                              <xd:G>cid:478141594055</xd:G>
+                              <xd:Y>cid:411757212299</xd:Y>
+                              <!--Optional:-->
+                              <xd:J>cid:1405225877801</xd:J>
+                              <!--Optional:-->
+                              <xd:Seed>cid:1273401674325</xd:Seed>
+                              <!--Optional:-->
+                              <xd:PgenCounter>cid:712730017214</xd:PgenCounter>
+                           </xd:DSAKeyValue>
+                           <xd:RSAKeyValue>
+                              <xd:Modulus>cid:1002507213039</xd:Modulus>
+                              <xd:Exponent>cid:753543889805</xd:Exponent>
+                           </xd:RSAKeyValue>
+                           <!--You may enter ANY elements at this point-->
+                           turbine
+                        </xd:KeyValue>
+                        <xd:RetrievalMethod URI="?" Type="?">
+                           <!--Optional:-->
+                           <xd:Transforms>
+                              <!--1 or more repetitions:-->
+                              <xd:Transform Algorithm="?">
+                                 circum
+                                 <!--You have a CHOICE of the next 2 items at this level-->
+                                 <xd:XPath>?</xd:XPath>
+                                 <!--You may enter ANY elements at this point-->
+                                 regemque
+                              </xd:Transform>
+                           </xd:Transforms>
+                        </xd:RetrievalMethod>
+                        <!--You may enter ANY elements at this point-->
+                        nimborum
+                     </xd:KeyInfo>
+                     <!--Zero or more repetitions:-->
+                     <xd:Object Id="?" MimeType="?" Encoding="?">
+                        fremunt
+                        <!--You may enter ANY elements at this point-->
+                        foedere
+                     </xd:Object>
+                  </xd:Signature>
+               </urn:bindingTemplate>
+            </urn:bindingTemplates>
+            <!--Optional:-->
+            <urn:categoryBag>
+               <!--Zero or more repetitions:-->
+               <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+               <!--Zero or more repetitions:-->
+               <urn:keyedReferenceGroup tModelKey="?">
+                  <!--Zero or more repetitions:-->
+                  <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+               </urn:keyedReferenceGroup>
+            </urn:categoryBag>
+            <!--Zero or more repetitions:-->
+            <xd:Signature Id="?">
+               <xd:SignedInfo Id="?">
+                  <xd:CanonicalizationMethod Algorithm="?">
+                     ferant
+                     <!--You may enter ANY elements at this point-->
+                     profundum
+                  </xd:CanonicalizationMethod>
+                  <xd:SignatureMethod Algorithm="?">
+                     sceptra
+                     <!--You have a CHOICE of the next 2 items at this level-->
+                     <xd:HMACOutputLength>?</xd:HMACOutputLength>
+                     <!--You may enter ANY elements at this point-->
+                     et
+                  </xd:SignatureMethod>
+                  <!--1 or more repetitions:-->
+                  <xd:Reference Id="?" URI="?" Type="?">
+                     <!--Optional:-->
+                     <xd:Transforms>
+                        <!--1 or more repetitions:-->
+                        <xd:Transform Algorithm="?">
+                           turbine
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:XPath>?</xd:XPath>
+                           <!--You may enter ANY elements at this point-->
+                           iovis
+                        </xd:Transform>
+                     </xd:Transforms>
+                     <xd:DigestMethod Algorithm="?">
+                        flammato
+                        <!--You may enter ANY elements at this point-->
+                        speluncis
+                     </xd:DigestMethod>
+                     <xd:DigestValue>cid:613418505610</xd:DigestValue>
+                  </xd:Reference>
+               </xd:SignedInfo>
+               <xd:SignatureValue Id="?">cid:379195007512</xd:SignatureValue>
+               <!--Optional:-->
+               <xd:KeyInfo Id="?">
+                  profundum
+                  <!--You have a CHOICE of the next 8 items at this level-->
+                  <xd:SPKIData>
+                     <!--You have a CHOICE of the next 2 items at this level-->
+                     <xd:SPKISexp>cid:1244758346896</xd:SPKISexp>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:SPKIData>
+                  <xd:KeyName>?</xd:KeyName>
+                  <xd:PGPData>
+                     <!--You have a CHOICE of the next 3 items at this level-->
+                     <xd:PGPKeyID>cid:142917450279</xd:PGPKeyID>
+                     <xd:PGPKeyPacket>cid:1098590416954</xd:PGPKeyPacket>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:PGPData>
+                  <xd:MgmtData>?</xd:MgmtData>
+                  <xd:X509Data>
+                     <!--You have a CHOICE of the next 6 items at this level-->
+                     <xd:X509Certificate>cid:1265138861736</xd:X509Certificate>
+                     <xd:X509SKI>cid:348148614978</xd:X509SKI>
+                     <xd:X509CRL>cid:1318319767386</xd:X509CRL>
+                     <xd:X509SubjectName>?</xd:X509SubjectName>
+                     <xd:X509IssuerSerial>
+                        <xd:X509IssuerName>?</xd:X509IssuerName>
+                        <xd:X509SerialNumber>?</xd:X509SerialNumber>
+                     </xd:X509IssuerSerial>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:X509Data>
+                  <xd:KeyValue>
+                     bella
+                     <!--You have a CHOICE of the next 3 items at this level-->
+                     <xd:DSAKeyValue>
+                        <!--Optional:-->
+                        <xd:P>cid:1294730090640</xd:P>
+                        <!--Optional:-->
+                        <xd:Q>cid:111496654331</xd:Q>
+                        <!--Optional:-->
+                        <xd:G>cid:492717849095</xd:G>
+                        <xd:Y>cid:1354207260893</xd:Y>
+                        <!--Optional:-->
+                        <xd:J>cid:703328245017</xd:J>
+                        <!--Optional:-->
+                        <xd:Seed>cid:474541223498</xd:Seed>
+                        <!--Optional:-->
+                        <xd:PgenCounter>cid:34439735701</xd:PgenCounter>
+                     </xd:DSAKeyValue>
+                     <xd:RSAKeyValue>
+                        <xd:Modulus>cid:1235818890845</xd:Modulus>
+                        <xd:Exponent>cid:1397807547854</xd:Exponent>
+                     </xd:RSAKeyValue>
+                     <!--You may enter ANY elements at this point-->
+                     nubibus
+                  </xd:KeyValue>
+                  <xd:RetrievalMethod URI="?" Type="?">
+                     <!--Optional:-->
+                     <xd:Transforms>
+                        <!--1 or more repetitions:-->
+                        <xd:Transform Algorithm="?">
+                           flammas
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:XPath>?</xd:XPath>
+                           <!--You may enter ANY elements at this point-->
+                           ac
+                        </xd:Transform>
+                     </xd:Transforms>
+                  </xd:RetrievalMethod>
+                  <!--You may enter ANY elements at this point-->
+                  hoc
+               </xd:KeyInfo>
+               <!--Zero or more repetitions:-->
+               <xd:Object Id="?" MimeType="?" Encoding="?">
+                  rapidum
+                  <!--You may enter ANY elements at this point-->
+                  ac
+               </xd:Object>
+            </xd:Signature>
+         </urn:businessService>
+      </urn:save_service>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="save_service"/></con:call></con:operation><con:operation isOneWay="false" action="save_tModel" name="save_tModel" bindingOperationName="save_tModel" type="Request-Response" outputName="save_tModelResponse" inputName="save_tModel" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.56.101:8080/juddiv3/services/publish</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:uddi-org:api_v3" xmlns:xd="http://www.w3.org/2000/09/xmldsig#">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:save_tModel>
+         <!--Optional:-->
+         <urn:authInfo>?</urn:authInfo>
+         <!--1 or more repetitions:-->
+         <urn:tModel tModelKey="?" deleted="?">
+            <urn:name xml:lang="?">?</urn:name>
+            <!--Zero or more repetitions:-->
+            <urn:description xml:lang="?">?</urn:description>
+            <!--Zero or more repetitions:-->
+            <urn:overviewDoc>
+               <!--Zero or more repetitions:-->
+               <urn:description xml:lang="?">?</urn:description>
+               <!--Optional:-->
+               <urn:overviewURL useType="?">?</urn:overviewURL>
+            </urn:overviewDoc>
+            <!--Optional:-->
+            <urn:identifierBag>
+               <!--1 or more repetitions:-->
+               <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+            </urn:identifierBag>
+            <!--Optional:-->
+            <urn:categoryBag>
+               <!--Zero or more repetitions:-->
+               <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+               <!--Zero or more repetitions:-->
+               <urn:keyedReferenceGroup tModelKey="?">
+                  <!--Zero or more repetitions:-->
+                  <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+               </urn:keyedReferenceGroup>
+            </urn:categoryBag>
+            <!--Zero or more repetitions:-->
+            <xd:Signature Id="?">
+               <xd:SignedInfo Id="?">
+                  <xd:CanonicalizationMethod Algorithm="?">
+                     e
+                     <!--You may enter ANY elements at this point-->
+                     gero
+                  </xd:CanonicalizationMethod>
+                  <xd:SignatureMethod Algorithm="?">
+                     cum
+                     <!--You have a CHOICE of the next 2 items at this level-->
+                     <xd:HMACOutputLength>?</xd:HMACOutputLength>
+                     <!--You may enter ANY elements at this point-->
+                     sonoras
+                  </xd:SignatureMethod>
+                  <!--1 or more repetitions:-->
+                  <xd:Reference Id="?" URI="?" Type="?">
+                     <!--Optional:-->
+                     <xd:Transforms>
+                        <!--1 or more repetitions:-->
+                        <xd:Transform Algorithm="?">
+                           aeoliam
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:XPath>?</xd:XPath>
+                           <!--You may enter ANY elements at this point-->
+                           quae
+                        </xd:Transform>
+                     </xd:Transforms>
+                     <xd:DigestMethod Algorithm="?">
+                        ventos
+                        <!--You may enter ANY elements at this point-->
+                        verrantque
+                     </xd:DigestMethod>
+                     <xd:DigestValue>cid:688510966036</xd:DigestValue>
+                  </xd:Reference>
+               </xd:SignedInfo>
+               <xd:SignatureValue Id="?">cid:1397183296581</xd:SignatureValue>
+               <!--Optional:-->
+               <xd:KeyInfo Id="?">
+                  temperat
+                  <!--You have a CHOICE of the next 8 items at this level-->
+                  <xd:SPKIData>
+                     <!--You have a CHOICE of the next 2 items at this level-->
+                     <xd:SPKISexp>cid:260362943390</xd:SPKISexp>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:SPKIData>
+                  <xd:KeyName>?</xd:KeyName>
+                  <xd:PGPData>
+                     <!--You have a CHOICE of the next 3 items at this level-->
+                     <xd:PGPKeyID>cid:613252352619</xd:PGPKeyID>
+                     <xd:PGPKeyPacket>cid:470152674595</xd:PGPKeyPacket>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:PGPData>
+                  <xd:MgmtData>?</xd:MgmtData>
+                  <xd:X509Data>
+                     <!--You have a CHOICE of the next 6 items at this level-->
+                     <xd:X509Certificate>cid:949265777293</xd:X509Certificate>
+                     <xd:X509SKI>cid:671520464601</xd:X509SKI>
+                     <xd:X509CRL>cid:942456396664</xd:X509CRL>
+                     <xd:X509SubjectName>?</xd:X509SubjectName>
+                     <xd:X509IssuerSerial>
+                        <xd:X509IssuerName>?</xd:X509IssuerName>
+                        <xd:X509SerialNumber>?</xd:X509SerialNumber>
+                     </xd:X509IssuerSerial>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:X509Data>
+                  <xd:KeyValue>
+                     per
+                     <!--You have a CHOICE of the next 3 items at this level-->
+                     <xd:DSAKeyValue>
+                        <!--Optional:-->
+                        <xd:P>cid:292358853379</xd:P>
+                        <!--Optional:-->
+                        <xd:Q>cid:977462105946</xd:Q>
+                        <!--Optional:-->
+                        <xd:G>cid:881255942533</xd:G>
+                        <xd:Y>cid:619753885787</xd:Y>
+                        <!--Optional:-->
+                        <xd:J>cid:1021310955983</xd:J>
+                        <!--Optional:-->
+                        <xd:Seed>cid:757197182130</xd:Seed>
+                        <!--Optional:-->
+                        <xd:PgenCounter>cid:720300575499</xd:PgenCounter>
+                     </xd:DSAKeyValue>
+                     <xd:RSAKeyValue>
+                        <xd:Modulus>cid:495965071282</xd:Modulus>
+                        <xd:Exponent>cid:412529588376</xd:Exponent>
+                     </xd:RSAKeyValue>
+                     <!--You may enter ANY elements at this point-->
+                     turbine
+                  </xd:KeyValue>
+                  <xd:RetrievalMethod URI="?" Type="?">
+                     <!--Optional:-->
+                     <xd:Transforms>
+                        <!--1 or more repetitions:-->
+                        <xd:Transform Algorithm="?">
+                           circum
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:XPath>?</xd:XPath>
+                           <!--You may enter ANY elements at this point-->
+                           regemque
+                        </xd:Transform>
+                     </xd:Transforms>
+                  </xd:RetrievalMethod>
+                  <!--You may enter ANY elements at this point-->
+                  nimborum
+               </xd:KeyInfo>
+               <!--Zero or more repetitions:-->
+               <xd:Object Id="?" MimeType="?" Encoding="?">
+                  fremunt
+                  <!--You may enter ANY elements at this point-->
+                  foedere
+               </xd:Object>
+            </xd:Signature>
+         </urn:tModel>
+      </urn:save_tModel>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="save_tModel"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="set_publisherAssertions" name="set_publisherAssertions" bindingOperationName="set_publisherAssertions" type="Request-Response" outputName="set_publisherAssertionsResponse" inputName="set_publisherAssertions" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.56.101:8080/juddiv3/services/publish</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:uddi-org:api_v3" xmlns:xd="http://www.w3.org/2000/09/xmldsig#">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:set_publisherAssertions>
+         <!--Optional:-->
+         <urn:authInfo>?</urn:authInfo>
+         <!--Zero or more repetitions:-->
+         <urn:publisherAssertion>
+            <urn:fromKey>?</urn:fromKey>
+            <urn:toKey>?</urn:toKey>
+            <urn:keyedReference tModelKey="?" keyName="?" keyValue="?"/>
+            <!--Zero or more repetitions:-->
+            <xd:Signature Id="?">
+               <xd:SignedInfo Id="?">
+                  <xd:CanonicalizationMethod Algorithm="?">
+                     e
+                     <!--You may enter ANY elements at this point-->
+                     gero
+                  </xd:CanonicalizationMethod>
+                  <xd:SignatureMethod Algorithm="?">
+                     cum
+                     <!--You have a CHOICE of the next 2 items at this level-->
+                     <xd:HMACOutputLength>?</xd:HMACOutputLength>
+                     <!--You may enter ANY elements at this point-->
+                     sonoras
+                  </xd:SignatureMethod>
+                  <!--1 or more repetitions:-->
+                  <xd:Reference Id="?" URI="?" Type="?">
+                     <!--Optional:-->
+                     <xd:Transforms>
+                        <!--1 or more repetitions:-->
+                        <xd:Transform Algorithm="?">
+                           aeoliam
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:XPath>?</xd:XPath>
+                           <!--You may enter ANY elements at this point-->
+                           quae
+                        </xd:Transform>
+                     </xd:Transforms>
+                     <xd:DigestMethod Algorithm="?">
+                        ventos
+                        <!--You may enter ANY elements at this point-->
+                        verrantque
+                     </xd:DigestMethod>
+                     <xd:DigestValue>cid:874787661305</xd:DigestValue>
+                  </xd:Reference>
+               </xd:SignedInfo>
+               <xd:SignatureValue Id="?">cid:1150640003077</xd:SignatureValue>
+               <!--Optional:-->
+               <xd:KeyInfo Id="?">
+                  temperat
+                  <!--You have a CHOICE of the next 8 items at this level-->
+                  <xd:SPKIData>
+                     <!--You have a CHOICE of the next 2 items at this level-->
+                     <xd:SPKISexp>cid:225032199548</xd:SPKISexp>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:SPKIData>
+                  <xd:KeyName>?</xd:KeyName>
+                  <xd:PGPData>
+                     <!--You have a CHOICE of the next 3 items at this level-->
+                     <xd:PGPKeyID>cid:210800881124</xd:PGPKeyID>
+                     <xd:PGPKeyPacket>cid:290834112460</xd:PGPKeyPacket>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:PGPData>
+                  <xd:MgmtData>?</xd:MgmtData>
+                  <xd:X509Data>
+                     <!--You have a CHOICE of the next 6 items at this level-->
+                     <xd:X509Certificate>cid:1235421955795</xd:X509Certificate>
+                     <xd:X509SKI>cid:616714688780</xd:X509SKI>
+                     <xd:X509CRL>cid:556709684893</xd:X509CRL>
+                     <xd:X509SubjectName>?</xd:X509SubjectName>
+                     <xd:X509IssuerSerial>
+                        <xd:X509IssuerName>?</xd:X509IssuerName>
+                        <xd:X509SerialNumber>?</xd:X509SerialNumber>
+                     </xd:X509IssuerSerial>
+                     <!--You may enter ANY elements at this point-->
+                  </xd:X509Data>
+                  <xd:KeyValue>
+                     per
+                     <!--You have a CHOICE of the next 3 items at this level-->
+                     <xd:DSAKeyValue>
+                        <!--Optional:-->
+                        <xd:P>cid:341495108987</xd:P>
+                        <!--Optional:-->
+                        <xd:Q>cid:325264914805</xd:Q>
+                        <!--Optional:-->
+                        <xd:G>cid:564023280585</xd:G>
+                        <xd:Y>cid:454611272010</xd:Y>
+                        <!--Optional:-->
+                        <xd:J>cid:819109764717</xd:J>
+                        <!--Optional:-->
+                        <xd:Seed>cid:549116940447</xd:Seed>
+                        <!--Optional:-->
+                        <xd:PgenCounter>cid:207419922660</xd:PgenCounter>
+                     </xd:DSAKeyValue>
+                     <xd:RSAKeyValue>
+                        <xd:Modulus>cid:991602080011</xd:Modulus>
+                        <xd:Exponent>cid:980196654451</xd:Exponent>
+                     </xd:RSAKeyValue>
+                     <!--You may enter ANY elements at this point-->
+                     turbine
+                  </xd:KeyValue>
+                  <xd:RetrievalMethod URI="?" Type="?">
+                     <!--Optional:-->
+                     <xd:Transforms>
+                        <!--1 or more repetitions:-->
+                        <xd:Transform Algorithm="?">
+                           circum
+                           <!--You have a CHOICE of the next 2 items at this level-->
+                           <xd:XPath>?</xd:XPath>
+                           <!--You may enter ANY elements at this point-->
+                           regemque
+                        </xd:Transform>
+                     </xd:Transforms>
+                  </xd:RetrievalMethod>
+                  <!--You may enter ANY elements at this point-->
+                  nimborum
+               </xd:KeyInfo>
+               <!--Zero or more repetitions:-->
+               <xd:Object Id="?" MimeType="?" Encoding="?">
+                  fremunt
+                  <!--You may enter ANY elements at this point-->
+                  foedere
+               </xd:Object>
+            </xd:Signature>
+         </urn:publisherAssertion>
+      </urn:set_publisherAssertions>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="set_publisherAssertions"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

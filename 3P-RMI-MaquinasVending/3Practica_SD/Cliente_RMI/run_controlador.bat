@@ -1,0 +1,3 @@
+set CLASSPATH=C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\3Practica_SD\src\Servidor_RMI\cliente.jar;C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\3Practica_SD\src\Cliente_RMI
+javac Controlador.java
+java -Djava.security.policy=registrar.policy Controlador 1234 127.0.0.1 1099 8 Maquina1 Maquina2 Maquina3 Maquina4 Maquina5 Maquina6 Maquina7 Maquina8

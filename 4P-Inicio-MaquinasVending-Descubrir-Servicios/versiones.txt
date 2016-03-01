@@ -1,0 +1,14 @@
+Apache tomcat 6.0.26
+Java versión 8
+Apache axis 2 – 1.5.1
+
+Sesión 1: un error (?) porque faltaba en windows - preferences - ... había que añadir el tomcat nuevo (o axis2) por algún lado más aparte de donde se dice en la práctica.
+
+Sesión 1: da error y no funciona (no se ejecuta, no hay resultado) porque habia que dejar tal cual el de por defecto, no poner el de la imagen (java se7 no, el que esté y ya está sin interrogación roja)
+
+Sesión 2:
+localhost:8080/juddiv3 no va porque no solo hay que copiar juddiv3 de lo descargado (en la carpeta webapps) si no también derby.jar a la carpeta lib de nuestro tomcat.
+
+
+
+authtoken:e48a157d-9e9e-4444-a44d-57b76b43d7c7

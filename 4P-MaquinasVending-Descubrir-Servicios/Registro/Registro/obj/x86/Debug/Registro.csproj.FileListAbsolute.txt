@@ -1,0 +1,9 @@
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\Registro\Registro\obj\x86\Debug\Registro.Form1.resources
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\Registro\Registro\obj\x86\Debug\Registro.Properties.Resources.resources
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\Registro\Registro\obj\x86\Debug\Registro.csproj.GenerateResource.Cache
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\Registro\Registro\bin\Debug\Registro.exe.config
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\Registro\Registro\bin\Debug\Registro.exe
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\Registro\Registro\bin\Debug\Registro.pdb
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\Registro\Registro\obj\x86\Debug\Registro.exe
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\Registro\Registro\obj\x86\Debug\Registro.pdb
+C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\Sistemas Distribuidos\Practicas\4Practica_SD\Registro\Registro\obj\x86\Debug\Registro.csprojResolveAssemblyReference.cache
